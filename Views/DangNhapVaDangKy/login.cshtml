@@ -1,0 +1,26 @@
+﻿
+@using DoAn003.Models;
+@using DoAn003.Models.ListEntities;
+@{
+    ViewBag.Title = "Tài khoản";
+    Layout = "~/Views/Shared/Cli/TrangChu.cshtml";
+}
+<div style="display:flex;justify-content:center;" class="login-form justify-content-center align-items-center">
+    <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+        <h1 style="color:red"></h1>
+        <h2>Đăng nhập</h2>
+        <div class="cart-total mb-3">
+            <form class="info" action="~/DangNhapVaDangKy/login" method="post">
+                <div class="form-group">
+                    <input class="form-control text-left px-3" type="email" name="email" id="email" placeholder="email của bạn" required checked="checked" />
+                </div>
+                <div class="form-group">
+                    <input class="form-control text-left px-3" type="password" name="mk" id="mk" placeholder="mật khẩu" required />
+                </div>
+                <button type="submit" class="btn btn-success">Đăng nhập</button>
+                <button type="reset" class="btn btn-danger">Làm lại</button>
+            </form>
+            Hoặc <a href="~/DangNhapVaDangKy/signup">Đăng ký tài khoản</a>
+        </div>
+    </div>
+</div>

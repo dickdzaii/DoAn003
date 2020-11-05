@@ -1,0 +1,765 @@
+﻿function showDateVN() {
+    var strdate;
+    var dt = new Date();
+    var strarrDay = new Array("Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy");
+    var strarrMonth = new Array("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12");
+    var strThu = dt.getDay();
+    strThu = strarrDay[strThu] + ", ";
+    var strDay = dt.getDate();
+    if (strDay < 10) strDay = "0" + strDay
+    var strMonth = dt.getMonth();
+    strMonth = strarrMonth[strMonth];
+    var strYears = dt.getYear();
+    if (strYears < 1900) strYears += 1900;
+    strdate = strThu + " " + strDay + "/" + strMonth + "/" + strYears
+    window.document.write(strdate);
+}
+function showDateEN() {
+    var strdate;
+    var dt = new Date();
+    var strarrDay = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+    var strarrMonth = new Array("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12");
+    var strThu = dt.getDay();
+    strThu = strarrDay[strThu] + ", ";
+    var strDay = dt.getDate();
+    if (strDay < 10) strDay = "0" + strDay
+    var strMonth = dt.getMonth();
+    strMonth = strarrMonth[strMonth];
+    var strYears = dt.getYear();
+    if (strYears < 1900) strYears += 1900;
+    strdate = strThu + " " + strMonth + "/" + strDay + "/" + strYears
+    window.document.write(strdate);
+}
+function showDateCN() {
+    var strdate;
+    var dt = new Date();
+    var strarrDay = new Array("星 期 日", "星 期 一", "星 期 二", "星 期 三", "星 期 四", "星 期 五", "星 期 六");
+    var strarrMonth = new Array("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12");
+    var strThu = dt.getDay();
+    strThu = strarrDay[strThu] + ", ";
+    var strDay = dt.getDate();
+    if (strDay < 10) strDay = "0" + strDay
+    var strMonth = dt.getMonth();
+    strMonth = strarrMonth[strMonth];
+    var strYears = dt.getYear();
+    if (strYears < 1900) strYears += 1900;
+    strdate = strThu + " " + strDay + "/" + strMonth + "/" + strYears
+    window.document.write(strdate);
+}
+
+function showDateTimeVN() {
+    var strdate;
+    var strTime;
+    var dt = new Date();
+    var strarrDay = new Array("Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy");
+    var strarrMonth = new Array("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12");
+    var strThu = dt.getDay();
+    strThu = strarrDay[strThu] + ", ";
+    var strDay = dt.getDate();
+    if (strDay < 10) strDay = "0" + strDay
+    var strMonth = dt.getMonth();
+    strMonth = strarrMonth[strMonth];
+    var strYears = dt.getYear();
+    if (strYears < 1900) strYears += 1900;
+
+    strTime = dt.getHours() + ":" + dt.getMinutes() + " GMT +7";
+    strdate = strThu + strDay + "/" + strMonth + "/" + strYears + ", " + strTime;
+    window.document.write(strdate);
+}
+
+function showDateTimeEN() {
+    var strdate;
+    var strTime;
+    var dt = new Date();
+    var strarrDay = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+    var strarrMonth = new Array("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12");
+    var strThu = dt.getDay();
+    strThu = strarrDay[strThu] + ", ";
+    var strDay = dt.getDate();
+    if (strDay < 10) strDay = "0" + strDay
+    var strMonth = dt.getMonth();
+    strMonth = strarrMonth[strMonth];
+    var strYears = dt.getYear();
+    if (strYears < 1900) strYears += 1900;
+
+    strTime = dt.getHours() + ":" + dt.getMinutes() + " GMT +7";
+    strdate = strThu + " " + strMonth + "/" + strDay + "/" + strYears + ", " + strTime;
+    window.document.write(strdate);
+}
+
+function showDateTimeCN() {
+    var strdate;
+    var strTime;
+    var dt = new Date();
+    var strarrDay = new Array("星 期 日", "星 期 一", "星 期 二", "星 期 三", "星 期 四", "星 期 五", "星 期 六");
+    var strarrMonth = new Array("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12");
+    var strThu = dt.getDay();
+    strThu = strarrDay[strThu] + ", ";
+    var strDay = dt.getDate();
+    if (strDay < 10) strDay = "0" + strDay
+    var strMonth = dt.getMonth();
+    strMonth = strarrMonth[strMonth];
+    var strYears = dt.getYear();
+    if (strYears < 1900) strYears += 1900;
+
+    strTime = dt.getHours() + ":" + dt.getMinutes() + " GMT +7";
+    strdate = strThu + " " + strDay + "/" + strMonth + "/" + strYears + ", " + strTime;
+    window.document.write(strdate);
+}
+
+function openpage(pageurl, pagename, pagewidth, pageheight) {
+    var attr;
+    attr = "width=" + pagewidth + ",height=" + pageheight + ",scrollbars=yes,status=no,title=yes,toolbars=yes,resizable=no";
+    window.open(pageurl, pagename, attr);
+}
+
+function GetPage(C, P) {
+    var frmSubmit = document.frmWebsite;
+    frmSubmit.action = "default.aspx?c=" + C + "&p=" + P + "#content";
+    frmSubmit.submit();
+}
+
+function GetPage1(P) {
+    var frmSubmit = document.frmWebsite;
+    frmSubmit.action = "default.aspx?s=1&st=1&p=" + P + "#content";
+    frmSubmit.submit();
+}
+
+function GetPage2(T, P) {
+    var frmSubmit = document.frmWebsite;
+    frmSubmit.action = "default.aspx?topic_id=" + T + "&p=" + P + "#content";
+    frmSubmit.submit();
+}
+
+function GetPage3(P) {
+    var frmSubmit = document.frmWebsite;
+    frmSubmit.action = "default.aspx?s=1" + "&p=" + P + "#content";
+    frmSubmit.submit();
+}
+
+function GetPage4(ID, P) {
+    var frmSubmit = document.frmWebsite;
+    frmSubmit.action = "album.aspx?AlbumID=" + ID + "&p=" + P;
+    frmSubmit.submit();
+}
+
+function GetPageDis(ID, P, mode) {
+    var frmSubmit = document.frmWebsite;
+    frmSubmit.action = "distribution.aspx?c=" + ID + "&p=" + P + "&mode=" + mode;
+    frmSubmit.submit();
+}
+
+function GetPageFran(ID, P, mode) {
+    var frmSubmit = document.frmWebsite;
+    frmSubmit.action = "franchiseList.aspx?c=" + ID + "&p=" + P + "&mode=" + mode;
+    frmSubmit.submit();
+}
+
+function GetPage_Movie(ID, P) {
+    var frmSubmit = document.frmWebsite;
+    frmSubmit.action = "albumMovie.aspx?AlbumID=" + ID + "&p=" + P;
+    frmSubmit.submit();
+}
+
+function GetPage5(Cat, From, To, Key, P) {
+    var frmSubmit = document.frmWebsite;
+    var strURL;
+    strURL = "default.aspx?fs=1";
+    if (Cat != "") {
+        strURL += "&fscat=" + Cat;
+    }
+    if (From != "") {
+        strURL += "&fsfrom=" + From;
+    }
+    if (To != "") {
+        strURL += "&fsto=" + To;
+    }
+    if (Key != "") {
+        strURL += "&fskey=" + Key;
+    }
+    strURL += "&p=" + P;
+    frmSubmit.action = strURL;
+    frmSubmit.submit();
+}
+
+function doAdvanceSearch() {
+    frmWebsite.action = "default.aspx?s=1&st=1#content";
+    frmWebsite.submit();
+}
+
+function trim(text) {
+    pos1 = 0;
+    pos2 = text.length - 1;
+    for (i = 0; i <= text.length - 1; i++)
+        if (text.substr(i, 1) == " ") pos1 = i;
+        else break;
+    for (i = length - 1; i >= 0; i--)
+        if (text.substr(i, 1) == " ") pos2 = i;
+        else break;
+    if (pos2 < pos1) return "";
+    return text.substr(pos1, pos2 - pos1);
+}
+
+function trimstring(strin) {
+    var strtemp;
+    var i;
+    strtemp = "";
+    i = 0;
+    if (strin.charAt(i) != " ") { strtemp = strtemp + strin.charAt(i); }
+    for (var i = 1; i < strin.length - 1; i++) {
+        if (strin.charAt(i) == " ") {
+            if (strin.charAt(i + 1) != " ") { strtemp = strtemp + strin.charAt(i) }
+        }
+        else { strtemp = strtemp + strin.charAt(i) }
+    }
+    i = strin.length;
+    if (strin.charAt(i) != " ") { strtemp = strtemp + strin.charAt(i) }
+    return strtemp;
+}
+
+function image_change(objImg, strImgPath, intProID, intCount, strArr) {
+    var a = new Array();
+    var k;
+    //l=strArr.length;
+    a = strArr.split(",");
+
+    var objText;
+    objImg.src = strImgPath;
+
+    for (k = 1; k <= intCount; k++) {
+        objText = 'tbd_' + a[k];
+        var g = document.all(objText);
+        if (a[k] == intProID) {
+            g.style.display = 'block';
+        }
+        else {
+            g.style.display = 'none';
+        }
+    }
+    return true;
+}
+
+function image_firstshow(objImg, strImgPath, intProID, intCount, strArr, intCurProID) {
+    if (intCurProID == intProID) {
+        var a = new Array();
+        var k;
+        //l=strArr.length;
+        a = strArr.split(",");
+
+        var objText;
+        objImg.src = strImgPath;
+
+        for (k = 1; k <= intCount; k++) {
+            objText = 'tbd_' + a[k];
+            var g = document.all(objText);
+            if (a[k] == intProID) {
+                g.style.display = 'block';
+            }
+            else {
+                g.style.display = 'none';
+            }
+        }
+    }
+    return true;
+}
+
+function menu_show(intCatID, intCount, strArr) {
+    var a = new Array();
+    var k;
+    //l=strArr.length;
+    a = strArr.split(",");
+
+    var objText;
+    for (k = 1; k <= intCount; k++) {
+        objText = 'tbcat_' + a[k];
+        var g = document.all(objText);
+        if (a[k] == intCatID) {
+            if (g.style.display == 'none') {
+                g.style.display = 'block';
+            }
+            else {
+                g.style.display = 'none';
+            }
+        }
+    }
+    return true;
+}
+
+function menu_showfirst(intCatID) {
+    var objText;
+    objText = 'tbcat_' + intCatID;
+    var g = document.all(objText);
+    g.style.display = 'block';
+    return true;
+}
+
+function menu_show1(intCatID, intCount, strArr) {
+    var a = new Array();
+    var k;
+    //l=strArr.length;
+    a = strArr.split(",");
+
+    var objText;
+    for (k = 1; k <= intCount; k++) {
+        objText = 'tbcat1_' + a[k];
+        var g = document.all(objText);
+        if (a[k] == intCatID) {
+            if (g.style.display == 'none') {
+                g.style.display = 'block';
+            }
+            else {
+                g.style.display = 'none';
+            }
+        }
+    }
+    return true;
+}
+
+function menu_showfirst1(intCatID) {
+    var objText;
+    objText = 'tbcat1_' + intCatID;
+    var g = document.all(objText);
+    g.style.display = 'block';
+    return true;
+}
+
+function popupImage(src, note, title, css, border) {
+    var ppimgNW;
+    if (border == null) border = 0;
+    if (note == null) note = '';
+    if (ppimgNW != null) ppimgNW.close();
+    ppimgNW = window.open('', '_blank', 'width=500,height=500');
+    var doc = ppimgNW.document;
+    doc.write('<html>');
+    doc.write('<head>');
+    if (title != null) doc.write('<title>' + title + '</title>');
+    doc.write('<style> body {' + css + '} #ppImgText{' + css + '} #ppImg{cursor:hand}</style></head>');
+    doc.write('<body leftmargin="0" topmargin="' + border + '" onload="doResize();">');
+    doc.write('<div align="center">');
+    doc.write('<img src="' + src + '" id="ppImg" onclick="self.close();" title="Close">');
+    doc.write('</div>');
+    doc.write('<div style="height:1; width:' + border + '; font-size:4pt;">');
+    doc.write('</div>');
+    doc.write('<div id="ppImgText" align="center">');
+    doc.write(note);
+    doc.write('</div>');
+    doc.write('</body>');
+    doc.write('</html>');
+    doc.write('<' + 'script>');
+    doc.write('function doResize() {');
+    doc.write('  var imgW = ppImg.width, imgH = ppImg.height;');
+    doc.write('  window.resizeTo(imgW + 24 +' + border * 2 + ', imgH + ppImgText.offsetHeight + 64 + ' + border * 2 + ');');
+    doc.write('  setTimeout(\'doResize()\', 1000);');
+    doc.write('}');
+    doc.write('doResize(); ');
+    doc.write('</' + 'script>');
+}
+
+function doClick(ctrlName, e) {
+    var key;
+    if (window.event)
+        key = window.event.keyCode;
+    else
+        key = e.which;
+
+    if (key == 13) {
+        //Get the button the user wants to have clicked
+        var ctrl = document.getElementById(ctrlName);
+        if (ctrl != null) { //If we find the button click it
+            ctrl.focus();
+            event.keyCode = 0;
+        }
+    }
+}
+
+function doSubmit(btnName, e) {
+    var key;
+    if (window.event)
+        key = window.event.keyCode;
+    else
+        key = e.which;
+    if (key == 13) {
+        //Get the button the user wants to have clicked
+        var btn = document.getElementById(btnName);
+        if (btn != null) { //If we find the button click it
+            btn.click();
+            event.keyCode = 0;
+        }
+    }
+}
+
+function checkFran() {
+    var FName = "";
+    var LName = "";
+    var Add = "";
+    var Zip = "";
+    var Tel = "";
+    var Email = "";
+
+    FName = document.getElementById('VnFranchise1_txtFName');
+    LName = document.getElementById('VnFranchise1_txtLName');
+    Add = document.getElementById('VnFranchise1_txtAdd');
+    Zip = document.getElementById('VnFranchise1_txtZip');
+    Tel = document.getElementById('VnFranchise1_txtTel');
+    Email = document.getElementById('VnFranchise1_txtEmail');
+
+    if (FName.value == "" || LName.value == "") {
+        alert("Vui lòng nhập Họ tên");
+        FName.focus();
+        return false;
+    }
+
+    if (Add.value == "") {
+        alert("Vui lòng nhập địa chỉ liên lạc");
+        Add.focus();
+        return false;
+    }
+
+    if (Zip.value == "") {
+        alert("Vui lòng nhập mã vùng");
+        Zip.focus();
+        return false;
+    }
+    if (Tel.value == "") {
+        alert("Vui lòng nhập số điện thoại");
+        Tel.focus();
+        return false;
+    }
+
+    if (Email.value == "") {
+        alert("Vui lòng nhập Email");
+        Email.focus();
+        Email.value = "";
+        return false;
+    } else {
+        if (!isEmail(Email.value)) {
+            alert("Vui lòng nhập Email hợp lệ");
+            Email.focus();
+            Email.value = "";
+            return false;
+        }
+    }
+}
+
+function checkFranEn() {
+    var FName = "";
+    var LName = "";
+    var Add = "";
+    var Zip = "";
+    var Tel = "";
+    var Email = "";
+
+    FName = document.getElementById('EnFranchise1_txtFName');
+    LName = document.getElementById('EnFranchise1_txtLName');
+    Add = document.getElementById('EnFranchise1_txtAdd');
+    Zip = document.getElementById('EnFranchise1_txtZip');
+    Tel = document.getElementById('EnFranchise1_txtTel');
+    Email = document.getElementById('EnFranchise1_txtEmail');
+
+    if (FName.value == "" || LName.value == "") {
+        alert("Please input your name");
+        FName.focus();
+        return false;
+    }
+
+    if (Add.value == "") {
+        alert("Please input your address");
+        Add.focus();
+        return false;
+    }
+
+    if (Zip.value == "") {
+        alert("Please input your Zip Code");
+        Zip.focus();
+        return false;
+    }
+
+    if (Tel.value == "") {
+        alert("Please input your phone");
+        Tel.focus();
+        return false;
+    }
+
+    if (Email.value == "") {
+        alert("Please input your Email");
+        Email.focus();
+        Email.value = "";
+        return false;
+    } else {
+        if (!isEmail(Email.value)) {
+            alert("Please input valid Email");
+            Email.focus();
+            Email.value = "";
+            return false;
+        }
+    }
+}
+function checkFranCn() {
+    var FName = "";
+    var LName = "";
+    var Add = "";
+    var Zip = "";
+    var Tel = "";
+    var Email = "";
+
+    FName = document.getElementById('CnFranchise1_txtFName');
+    LName = document.getElementById('CnFranchise1_txtLName');
+    Add = document.getElementById('CnFranchise1_txtAdd');
+    Zip = document.getElementById('CnFranchise1_txtZip');
+    Tel = document.getElementById('CnFranchise1_txtTel');
+    Email = document.getElementById('CnFranchise1_txtEmail');
+
+    if (FName.value == "" || LName.value == "") {
+        alert("Please input your name");
+        FName.focus();
+        return false;
+    }
+
+    if (Add.value == "") {
+        alert("Please input your address");
+        Add.focus();
+        return false;
+    }
+
+    if (Zip.value == "") {
+        alert("Please input your Zip Code");
+        Zip.focus();
+        return false;
+    }
+
+    if (Tel.value == "") {
+        alert("Please input your phone");
+        Tel.focus();
+        return false;
+    }
+
+    if (Email.value == "") {
+        alert("Please input your Email");
+        Email.focus();
+        Email.value = "";
+        return false;
+    } else {
+        if (!isEmail(Email.value)) {
+            alert("Please input valid Email");
+            Email.focus();
+            Email.value = "";
+            return false;
+        }
+    }
+}
+function checkFran_Mng() {
+    var FName = "";
+    var LName = "";
+    var Add = "";
+
+    //var Zip="";
+    //var Tel="";
+    //var Email="";
+
+    FName = document.getElementById('txtFName');
+    LName = document.getElementById('txtLName');
+    Add = document.getElementById('txtAdd');
+    //Zip = document.getElementById('txtZip');
+    //Tel = document.getElementById('txtTel');
+    //Email = document.getElementById('txtEmail');
+
+    if (FName.value == "" || LName.value == "") {
+        alert("Vui lòng nhập Họ tên");
+        FName.focus();
+        return false;
+    }
+
+    if (Add.value == "") {
+        alert("Vui lòng nhập địa chỉ liên lạc");
+        Add.focus();
+        return false;
+    }
+    /*
+    if(Tel.value == "")
+    {
+    alert("Vui lòng nhập số điện thoại");
+    Tel.focus();
+    return false;
+    }
+
+    if(Zip.value == "")
+    {
+    alert("Vui lòng nhập mã vùng");
+    Zip.focus();
+    return false;
+    }
+
+    if(Email.value == "")
+    {
+    alert("Vui lòng nhập Email");
+    Email.focus();
+    Email.value = "";
+    return false;
+    }else
+    {
+    if(!isEmail(Email.value))
+    {
+    alert("Vui lòng nhập Email hợp lệ");
+    Email.focus();
+    Email.value = "";
+    return false;
+    }
+    }
+    */
+}
+
+function checkDis() {
+    var Name = "";
+    var Add = "";
+    var Tel = "";
+    var Email = "";
+
+    Name = document.getElementById('VnDistributionReg1_txtName');
+    Add = document.getElementById('VnDistributionReg1_txtAdd');
+    Tel = document.getElementById('VnDistributionReg1_txtTel');
+    Email = document.getElementById('VnDistributionReg1_txtEmail');
+
+    if (Name.value == "") {
+        alert("Vui lòng nhập Họ tên");
+        Name.focus();
+        return false;
+    }
+
+    if (Add.value == "") {
+        alert("Vui lòng nhập địa chỉ liên lạc");
+        Add.focus();
+        return false;
+    }
+
+    if (Tel.value == "") {
+        alert("Vui lòng nhập số điện thoại");
+        Tel.focus();
+        return false;
+    }
+
+    if (Email.value == "") {
+        alert("Vui lòng nhập Email");
+        Email.focus();
+        Email.value = "";
+        return false;
+    } else {
+        if (!isEmail(Email.value)) {
+            alert("Vui lòng nhập Email hợp lệ");
+            Email.focus();
+            Email.value = "";
+            return false;
+        }
+    }
+    return true;
+}
+
+function checkDisEn() {
+    var Name = "";
+    var Add = "";
+    var Tel = "";
+    var Email = "";
+
+    Name = document.getElementById('EnDistributionReg1_txtName');
+    Add = document.getElementById('EnDistributionReg1_txtAdd');
+    Tel = document.getElementById('EnDistributionReg1_txtTel');
+    Email = document.getElementById('EnDistributionReg1_txtEmail');
+
+    if (Name.value == "") {
+        alert("Please input your name");
+        Name.focus();
+        return false;
+    }
+
+    if (Add.value == "") {
+        alert("Please input your address");
+        Add.focus();
+        return false;
+    }
+
+    if (Tel.value == "") {
+        alert("Please input your phone");
+        Tel.focus();
+        return false;
+    }
+
+    if (Email.value == "") {
+        alert("Please input your Email");
+        Email.focus();
+        Email.value = "";
+        return false;
+    } else {
+        if (!isEmail(Email.value)) {
+            alert("Please input valid Email");
+            Email.focus();
+            Email.value = "";
+            return false;
+        }
+    }
+}
+
+function checkDisCn() {
+    var Name = "";
+    var Add = "";
+    var Tel = "";
+    var Email = "";
+
+    Name = document.getElementById('CnDistributionReg1_txtName');
+    Add = document.getElementById('CnDistributionReg1_txtAdd');
+    Tel = document.getElementById('CnDistributionReg1_txtTel');
+    Email = document.getElementById('CnDistributionReg1_txtEmail');
+
+    if (Name.value == "") {
+        alert("請輸入姓名");
+        Name.focus();
+        return false;
+    }
+
+    if (Add.value == "") {
+        alert("請輸入電子郵件地址");
+        Add.focus();
+        return false;
+    }
+
+    if (Tel.value == "") {
+        alert("請輸入電話號碼");
+        Tel.focus();
+        return false;
+    }
+
+    if (Email.value == "") {
+        alert("請輸入您的電子郵件");
+        Email.focus();
+        Email.value = "";
+        return false;
+    } else {
+        if (!isEmail(Email.value)) {
+            alert("請輸入合例電子郵件");
+            Email.focus();
+            Email.value = "";
+            return false;
+        }
+    }
+}
+
+function showhideReceiver(objshowhide) {
+    var g = document.all(objshowhide);
+    if (g.style.display != 'none') {
+        g.style.display = 'none';
+    }
+    else {
+        g.style.display = 'block';
+    }
+}
+
+function inputOnlyNumber(evt) {
+    evt = (evt) ? evt : ((window.event) ? window.event : null);
+    var key = (evt.keyCode > 0) ? evt.keyCode : evt.charCode;
+    if ((key < 48) || (key > 57)) return false;
+}
+
+function GetPageDevSoft(strURL) {
+    //var frmSubmit=document.frmWebsite;
+    var frmSubmit = document.forms[0];
+    frmSubmit.action = strURL;
+    frmSubmit.submit();
+}

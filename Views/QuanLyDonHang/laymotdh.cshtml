@@ -1,0 +1,79 @@
+﻿@using DoAn003.Models;
+@model List<ChiTietDonHang>
+@{
+    ViewBag.Title = "chi tiết đơn hàng";
+    Layout = "~/Views/Shared/Svr/QuanTri.cshtml";
+    WebCayCanhDB data = new WebCayCanhDB();
+}
+<div class="right_col" role="main">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td><input type="checkbox" class="checkbox checkbox-inline" /></td>
+                <td>
+                    Mã Chi Tiết
+                    <a><i class="glyphicon glyphicon-collapse-down"></i></a>
+                </td>
+                <td>
+                    Mã Đơn
+                    <a><i class="glyphicon glyphicon-collapse-down"></i></a>
+                </td>
+                <td>
+                    Mã Sản phẩm
+                    <a><i class="glyphicon glyphicon-collapse-down"></i></a>
+                </td>
+                <td>
+                    Tên sản phẩm
+                </td>
+                <td>
+                    ảnh
+                </td>
+                <td>
+                    số lượng
+                </td>
+                <td>
+                    đơn giá
+                </td>
+                <td>
+                    thành tiền
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sp in Model)
+            {
+                <tr>
+                    <td><input type="checkbox" class="checkbox" /></td>
+                    <td>
+                        @sp.MaChiTiet
+                    </td>
+                    <td>
+                        @sp.MaDonHang
+                    </td>
+                    <td>
+                        @sp.MaSanPham
+                    </td>
+                    <td>
+                        @sp.TenSanPham
+                    </td>
+                    <td>
+                        @sp.Anh
+                    </td>
+                    <td>
+                        @sp.SoLuong
+                    </td>
+                    <td>
+                        @sp.DonGia
+                    </td>
+                    <td>
+                        @sp.ThanhTien
+                    </td>
+                    
+                </tr>
+            }
+            <tr><td colspan="8">Tổng tiền =@Model.Sum(s => s.ThanhTien) VNĐ</td></tr>
+        </tbody>
+    </table>
+
+    </div>
+

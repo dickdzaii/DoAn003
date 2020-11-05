@@ -1,0 +1,58 @@
+﻿@using DoAn003.Models;
+@using DoAn003.Models.ListEntities;
+@model IEnumerable<HoaDonBan>
+@{
+    ViewBag.Title = "Quản lý hóa đơn bán";
+    Layout = "~/Views/Shared/Svr/QuanTri.cshtml";
+}
+<div class="right_col" role="main">
+    <h3>Danh Sách Hóa Đơn Bán</h3>
+    <a href="#" class="btn btn-primary" onclick="themhdb()">Thêm Hóa Đơn Bán</a>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td><input type="checkbox" class="checkbox checkbox-inline" /></td>
+                <td>
+                    Mã Hóa Đơn
+                    <a><i class="glyphicon glyphicon-collapse-down"></i></a>
+                </td>
+                <td>
+                    Mã Đơn Hàng
+                    <a><i class="glyphicon glyphicon-collapse-down"></i></a>
+                </td>
+                <td>
+                    Mã Nhân Viên
+                    <a><i class="glyphicon glyphicon-collapse-down"></i></a>
+                </td>
+                <td>
+                    Tổng Thành Tiền
+                    <a><i class="glyphicon glyphicon-collapse-down"></i></a>
+                </td>
+               
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ncc in Model)
+            {
+                <tr>
+                    <td><input type="checkbox" class="checkbox" /></td>
+                    <td>
+                        @ncc.MaHoaDonBan
+                    </td>
+                    <td>
+                        @ncc.MaDonHang
+                    </td>
+                    <td>
+                        @ncc.MaNhanVien
+                    </td>
+                    <td>
+                        @ncc.TongThanhTien
+                    </td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

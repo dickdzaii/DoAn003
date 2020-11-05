@@ -1,0 +1,124 @@
+﻿@using DoAn003.Models.ListEntities;
+@using DoAn003.Models;
+@{
+    ViewBag.Title = "Đặt Hàng";
+    Layout = "~/Views/Shared/Cli/TrangChu.cshtml";
+    List<Cart> giohang = Session["YourCart"] as List<Cart>;
+    WebCayCanhDB data = new WebCayCanhDB();
+    LoaiSanPhamModel qllsp = new LoaiSanPhamModel();
+    var loai = qllsp.DanhSachLoai();
+}
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-7 ftco-animate">
+                <form action="~/Cart/DatHangThanhCong" class="billing-form">
+                    <h3 class="mb-4 billing-heading">Thông Tin Giao Hàng</h3>
+                    <div class="row align-items-end"> 
+                        <div class="w-100"></div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="country">Họ tên</label>
+                                <div class="select-wrap">
+                                    <input class="form-control" required id="hoten" name="hoten" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="country">Email</label>
+                                <div class="select-wrap">
+                                    <input class="form-control" id="email" required name="email" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="country">Địa chỉ </label>
+                                <div class="select-wrap">
+                                    <input class="form-control" required id="diachi" name="diachi" />
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="country">Số điện thoại</label>
+                                <div class="select-wrap">
+                                    <input class="form-control" id="sdt" required name="sdt" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="w-100"></div>
+                        <div class="w-100"></div>
+                        <div class="w-100"></div>
+                        <div class="col-md-12">
+                        </div>
+
+                    </div>
+                    @if (giohang != null)
+                    {
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-16 ftco-animate">
+                                    <div class="cart-list">
+                                        <table class="table">
+                                            <thead class="thead-primary">
+                                                <tr class="text-center">
+                                                    
+                                                    <th>&nbsp;</th>
+                                                    <th>Tên sản phẩm</th>
+                                                    <th>Đơn giá</th>
+                                                    <th>Số lượng</th>
+                                                    <th>Thành tiền</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                @foreach (var item in giohang)
+                                                {
+                                                    var tenloai = @qllsp.Layloaitheosp(item.Masp).TenLoai;
+                                                    <tr class="text-center">
+
+                                                        <td class="image-prod"><div class="img"><img src="~/Assets/Clt/images/Products/@tenloai/@item.Anh" height="60" width="60" /></div></td>
+
+                                                        <td class="product-name">
+                                                            <h3>@item.Tensp</h3>
+                                                            <!--<p>Far far away, behind the word mountains, far from the countries</p>-->
+                                                        </td>
+
+                                                        <td class="price">@string.Format("{0:#,##0}", item.DonGia) VNĐ</td>
+
+                                                        <td class="quantity">
+                                                            <div class="input-group mb-3">
+                                                                
+
+                                                                <input type="text" name="quantity" class="quantity form-control input-number" value="@item.SL" readonly min="1" max="100">
+
+                                                                
+                                                            </div>
+
+                                                        </td>
+
+                                                        <td class="total">@string.Format("{0:#,##0}", item.ThanhTien) VNĐ</td>
+                                                    </tr><!-- END TR-->
+                                                }
+                                                <tr><td colspan="3"> Tổng cộng (chưa bao gồm Shipping fee):&nbsp;@string.Format("{0:#,##0}", giohang.Sum(n => n.ThanhTien)) VNĐ</td><td colspan="2"></td></tr>
+
+                                            </tbody>
+                                        </table>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+                    <button type="submit" onclick="return alert('đặt hàng thành công!')" class="btn btn-primary py-3 px-4" >Đặt hàng</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+

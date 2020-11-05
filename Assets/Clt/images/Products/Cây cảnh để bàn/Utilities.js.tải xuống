@@ -1,0 +1,1078 @@
+﻿function openpage(pageurl, pagename, pagewidth, pageheight) 
+{                                          
+	var attr;                                          
+	attr="width="+pagewidth+",height="+pageheight+",scrollbars=yes,status=no,title=yes,toolbars=yes,resizable=yes"
+	window.open(pageurl, pagename, attr);                                          
+}
+
+function openpage_noresize(pageurl, pagename, pagewidth, pageheight) 
+{                                          
+	var attr;       	
+	attr="width="+pagewidth+",height="+pageheight+",scrollbars=no,status=no,title=yes,toolbars=no,resizable=no"
+	window.open(pageurl, pagename, attr);                                          
+}
+
+
+function trim(text)
+{
+	pos1=0;
+	pos2=text.length-1;
+	for(i=0;i<=text.length-1;i++)
+		if(text.substr(i,1)==" ") pos1=i;
+		else break;
+	for(i=length-1;i>=0;i--)
+		if(text.substr(i,1)==" ") pos2=i;
+		else break;
+	if (pos2<pos1) return ""
+	return text.substr(pos1,pos2-pos1)
+}
+
+function trimstring(strin)
+{
+	var strtemp;	
+	var i,  j; 
+	strtemp="";
+	i=0;
+	
+	while (strin.charAt(i) == " ")
+	{
+		i++;
+	}
+	
+	for (var j=i; j<strin.length-1; j++){
+		if (strin.charAt(j)==" ")
+		{
+			if (strin.charAt(j+1)==" ") 
+			{
+				strtemp=strtemp+strin.charAt(j);
+			}
+			else
+			{
+				strtemp=strtemp+strin.charAt(j);
+			}
+		}
+		else {strtemp=strtemp+strin.charAt(j)} 
+	}		
+	
+	if (strin.charAt(j)!= " " ) 
+	{
+		strtemp = strtemp + strin.charAt(j);
+	}
+	return strtemp;
+}
+
+/*
+function trimstring(strin)
+{ 
+	var strtemp;
+	var i; 
+	strtemp="";
+	i=0;
+	if (strin.charAt(i)!=" "){strtemp=strtemp+strin.charAt(i);}
+	for (var i=1;i<strin.length-1;i++){
+		if (strin.charAt(i)==" "){
+			if (strin.charAt(i+1)!=" ") {strtemp=strtemp+strin.charAt(i)}
+		}
+		else {strtemp=strtemp+strin.charAt(i)} 
+	}
+	i=strin.length;
+	if (strin.charAt(i)!=" "){strtemp=strtemp+strin.charAt(i)}
+	return strtemp; 
+} 
+*/
+	
+function trimfullstring(strin)
+{ 
+	var strtemp 
+		strtemp="" 
+		for (var i=0;i<strin.length;i++) 
+			if (strin.charAt(i)!=" ") {strtemp=strtemp+strin.charAt(i)} 
+		return strtemp; 
+}
+
+function IsNumberString(MyString)
+{ 
+	var checkOK = "0123456789"; 
+	var checkStr = MyString ; 
+	var allValid = true; 
+	var decPoints = 0; 
+	var allNum = ""; 
+	if (checkStr.length<=0) { return (false); } 
+	for (i = 0;  i < checkStr.length;  i++){ 
+		ch = checkStr.charAt(i); 
+		for (j = 0;  j < checkOK.length;  j++) 
+			if (ch == checkOK.charAt(j)) 
+				break; 
+			if (j == checkOK.length) { 
+				allValid = false; 
+				break; 
+			} 
+			if (ch != ",") 
+				allNum += ch; 
+	} 
+	if (!allValid) { return (false);} 
+	return true; 
+} 
+	
+function IsDoubleString(MyString)
+{ 
+	var checkOK = "0123456789."; 
+	var checkStr = MyString ; 
+	var allValid = true; 
+	var decPoints = 0; 
+	var allNum = ""; 
+	if (checkStr.length<=0) { return (false); } 
+	for (i = 0;  i < checkStr.length;  i++){ 
+		ch = checkStr.charAt(i); 
+		for (j = 0;  j < checkOK.length;  j++) 
+			if (ch == checkOK.charAt(j)) 
+				break; 
+			if (j == checkOK.length) { 
+				allValid = false; 
+				break; 
+			} 
+			if (ch != ",") 
+				allNum += ch; 
+	} 
+	if (!allValid) { return (false);} 
+	return true; 
+} 
+	
+function isDigit(c) 
+{
+	if((c=='0')||(c=='1')||(c=='2')||(c=='3')||(c=='4')||(c=='5')||(c=='6')||(c=='7')||(c=='8')||(c=='9'))
+		return true;
+	else
+		return false;
+}
+	
+function isPosInt(s)	
+{
+	var n;
+	n = s.length
+	if(n==0) return false;
+		for(i=0;i<n;i++)
+			if(!isDigit(s.charAt(i))) return false;
+		return true;
+}
+
+function isPosReal(s)
+{
+	var dot;
+	s = trim(s);
+	dot =0;
+	for(i=0;i<s.length;i++)
+		if(!isDigit(s.charAt(i))) 
+		{
+			if(s.charAt(i)=='.') 
+			{
+				dot++;
+				if(i==s.length-1) return false;
+				if(dot>1) return false;
+			}
+			else return false;	
+		}
+	return true;
+}
+
+function isValidDate(strDate)
+{
+	 var m;
+	 var d;
+	 var y;
+	 var i1;
+	 var i2;
+	 
+	 strDate=trim(strDate);
+	 if(strDate=="") return false;
+	 i1 = strDate.indexOf("/")
+	 if(i1<0) return false;
+	 m = strDate.substring(0,i1)
+	 i2= strDate.indexOf("/",i1+1)
+	 if(i2<0) return false;
+	 d = strDate.substring(i1+1,i2)
+	 y = strDate.substring(i2+1)
+
+	 if((m=="")||(d=="")||(y=="")) return false;
+	 if((m==0)||(d==0)||(y==0)) return false;
+	 if(!isPosInt(m))
+	 	 return false;
+	 else
+	 	{	
+		 m = parseInt(m);
+		 if(m>12) return false;
+	 	}
+
+	 if(!isPosInt(y))
+	 	 return false;
+	 else
+		{
+		 y = parseInt(y)
+		 if(y>9999) return false;
+		}
+
+	 if(!isPosInt(d))
+	 	 return false;
+	 else
+		{
+		 d = parseInt(d)
+		 if((m==1)||(m==3)||(m==5)||(m==7)||(m==8)||(m==10)||(m==12))
+			 if(d>31) return false;
+	 	 if((m==4)||(m==6)||(m==9)||(m==11))
+			if(d>30) return false;
+
+		 if(m==2)
+			{
+			 if(d>29) return false;
+			 if((y%4)!=0) // not a leap year
+			 	if(d>28) return false;
+			}
+		}
+
+	return true;
+}
+
+function isValidDateVie(strDate)
+{
+	 var m;
+	 var d;
+	 var y;
+	 var i1;
+	 var i2;
+	 
+	 
+	 strDate=trim(strDate);
+	 if(strDate=="") return false;
+	 i1 = strDate.indexOf("-")
+	 if(i1<0) return false;
+	 d = strDate.substring(0,i1)
+	 i2= strDate.indexOf("-",i1+1)
+	 if(i2<0) return false;
+	 m = strDate.substring(i1+1,i2)
+	 y = strDate.substring(i2+1,10)
+
+	 if((m=="")||(d=="")||(y=="")) return false;
+	 if((m==0)||(d==0)||(y==0)) return false;
+	 if(!isPosInt(m))
+	 	 return false;
+	 else
+	 	{	
+		 m = parseInt(m);
+		 if(m>12) return false;
+	 	}
+
+	 if(!isPosInt(y))
+	 	 return false;
+	 else
+		{
+		 y = parseInt(y);
+		 if(y>9999) return false;
+		}
+
+	 if(!isPosInt(d))
+	 	 return false;
+	 else
+		{
+		 d = parseInt(d);
+		 if((m==1)||(m==3)||(m==5)||(m==7)||(m==8)||(m==10)||(m==12))
+			 if(d>31) return false;
+	 	 if((m==4)||(m==6)||(m==9)||(m==11))
+			if(d>30) return false;
+
+		 if(m==2)
+			{
+			 if(d>29) return false;
+			 if((y%4)!=0) // not a leap year
+			 	if(d>28) return false;
+			}
+		}
+
+	return true;
+}
+
+function isValidDateEng(strDate)
+{
+	 var m;
+	 var d;
+	 var y;
+	 var i1;
+	 var i2;
+	 
+	 
+	 strDate=trim(strDate);
+	 if(strDate=="") return false;
+	 i1 = strDate.indexOf("-")
+	 if(i1<0) return false;
+	 m = strDate.substring(0,i1)
+	 i2= strDate.indexOf("-",i1+1)
+	 if(i2<0) return false;
+	 d = strDate.substring(i1+1,i2)
+	 y = strDate.substring(i2+1,10)
+
+	 if((m=="")||(d=="")||(y=="")) return false;
+	 if((m==0)||(d==0)||(y==0)) return false;
+	 if(!isPosInt(m))
+	 	 return false;
+	 else
+	 	{	
+		 m = parseInt(m);
+		 if(m>12) return false;
+	 	}
+
+	 if(!isPosInt(y))
+	 	 return false;
+	 else
+		{
+		 y = parseInt(y);
+		 if(y>9999) return false;
+		}
+
+	 if(!isPosInt(d))
+	 	 return false;
+	 else
+		{
+		 d = parseInt(d);
+		 if((m==1)||(m==3)||(m==5)||(m==7)||(m==8)||(m==10)||(m==12))
+			 if(d>31) return false;
+	 	 if((m==4)||(m==6)||(m==9)||(m==11))
+			if(d>30) return false;
+
+		 if(m==2)
+			{
+			 if(d>29) return false;
+			 if((y%4)!=0) // not a leap year
+			 	if(d>28) return false;
+			}
+		}
+
+	return true;
+}
+
+function isEmail(strEmail)
+{
+	var intlen;
+	var ctmp;
+	strEmail = trim(strEmail);
+	if(strEmail=='') return false;
+	intlen=strEmail.length;
+	if(intlen<5) return false;
+	if(strEmail.indexOf('@')==-1) return false;
+	if(strEmail.indexOf('.')==-1) return false;
+	if(intlen - strEmail.lastIndexOf('.') -1 > 3) return false; 
+	if((strEmail.indexOf("_")!=-1) && (strEmail.lastIndexOf("_") > strEmail.lastIndexOf("@"))) return false;
+	if(strEmail.lastIndexOf(".") <= strEmail.lastIndexOf("@")+1)  return false;
+	if(strEmail.indexOf("@")!=strEmail.lastIndexOf("@")) return false;
+	if(intlen -1 == strEmail.lastIndexOf('.')) return false;
+	if(strEmail.charAt(strEmail.indexOf('@')+1)=='.') return false;
+	if(strEmail.indexOf(" ")!=-1) return false;
+	if(strEmail.indexOf("..")!=-1) return false;
+ 
+	strEmail=strEmail.toLowerCase();
+	for(intcnt=0;intcnt<intlen;intcnt++)
+	{
+		ctmp = strEmail.charAt(intcnt)
+		if((!isDigit(ctmp))&& ((ctmp>'z')||(ctmp<'a')) && (ctmp!='-') && (ctmp!='.') && (ctmp!='@') && (ctmp!='_')) return false;
+	}
+	return true	;
+}
+
+function isZip(str)
+{
+	str=trim(str);
+	if(str=='') return false;
+	if(str.length!=5) return false;
+	if(!isPosInt(str)) return false;
+	return true;
+}
+
+function getFileName(str)
+{
+	var bpos
+	var filename
+	if((str=='')||(str.indexOf("\\")==-1)) return(str);
+	bpos = str.lastIndexOf("\\");
+	filename = str.substring(bpos+1,str.length)
+	return(filename);
+}
+
+function getFileType(str)
+{
+	var filename;
+	var fileext;
+	var dotpos;
+	fileext ='';
+	filename = getFileName(str);
+	dotpos = filename.lastIndexOf(".");
+ 
+	if(dotpos!=-1)
+	{
+		fileext = filename.substring(dotpos+1,filename.length);
+		fileext = fileext.toLowerCase();
+	}
+	else
+	{
+		fileext = '';
+	}
+	return(fileext);
+}
+
+function validate_periodtime(form) 
+{
+	var dayfrom, monthfrom, yearfrom;
+	var dayto, monthto, yearto;
+	var datefrom, dateto;
+	var ValidateDate;
+	ValidateDate=true;
+	dayfrom=parseInt(form.dayfrom.options[form.dayfrom.selectedIndex].value);
+	monthfrom=parseInt(form.monthfrom.options[form.monthfrom.selectedIndex].value);
+	yearfrom=parseInt(form.yearfrom.options[form.yearfrom.selectedIndex].value);
+	dayto=parseInt(form.dayto.options[form.dayto.selectedIndex].value);
+	monthto=parseInt(form.monthto.options[form.monthto.selectedIndex].value);
+	yearto=parseInt(form.yearto.options[form.yearto.selectedIndex].value);
+	switch (monthfrom) {
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			if (dayfrom==31) ValidateDate=false;
+			break;
+		case 2:
+			if (dayfrom>28) {
+				if (dayfrom==29) {
+					if ((yearfrom % 4)!=0) ValidateDate=false;
+				}
+				else ValidateDate=false;
+			}
+	}
+
+	if (ValidateDate==false) {
+		alert("The date is invalid...");
+		form.dayfrom.focus();
+		return false; 
+	}
+
+	switch (monthto) {
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			if (dayto==31) ValidateDate=false;
+			break;
+		case 2:
+			if (dayto>28) {
+				if (dayto==29) {
+					if ((yearto % 4)!=0) ValidateDate=false;
+				}
+				else ValidateDate=false;
+			}
+	}
+	
+	if (ValidateDate==false){
+		alert("The date is invalid...");
+		form.dayto.focus();
+		return false;
+	}
+	
+	datefrom=monthfrom + '/' + dayfrom + '/' + yearfrom;
+	dateto=monthto + '/' + dayto + '/' + yearto;
+	
+	if (yearfrom < yearto) return true;
+	if (yearfrom > yearto) {ValidateDate=false;}
+	if (yearfrom == yearto){
+		if (monthfrom < monthto) return true;
+		if (monthfrom > monthto) {ValidateDate=false;}
+		if (monthfrom == monthto){
+			if (dayfrom <= dayto) return true;
+			if (dayfrom > dayto) {ValidateDate=false; }
+		}
+	}
+		
+	if (ValidateDate==false){
+		alert('From: ' + datefrom+' > To: '+dateto+' ?? ');
+		return false;
+	}
+
+}
+
+function showhide(objshowhide, textshowhide)
+{
+	var g=document.all(objshowhide); 
+	var x=document.all(textshowhide); 
+		var w=this.offsetWidth;
+		if (g.style.display!='none') 
+		{
+			g.style.display='none';
+			x.innerHTML='(show)';
+		} 
+		else 
+		{
+			g.style.display='block';
+			x.innerHTML='(Hide)';
+		}
+}
+
+function checkPeriod(DATE_FROM, DATE_TO)
+{
+	var str1 = DATE_FROM;
+	var str2 = DATE_TO;
+	var d;
+	var i1, i2;
+	var y1, y2;
+	var m1, m2;
+	var d1, d2;				
+	
+						
+	i1 = str1.indexOf("-");					
+	d1 = parseInt(str1.substring(0,i1),0);											
+	i2= str1.indexOf("-",i1+1);
+	m1 = parseInt(str1.substring(i1+1,i2),0);	
+	y1 = parseInt(str1.substring(i2+1),0);																				
+	
+	i1 = i2= 0;
+	i1 = str2.indexOf("-");
+	d2 = parseInt(str2.substring(0,i1),0);											
+	i2= str2.indexOf("-",i1+1);
+	m2 = parseInt(str2.substring(i1+1,i2),0);																		
+	y2 = parseInt(str2.substring(i2+1));																				
+	
+	if (y1<y2)
+	{	
+		return true;
+	}
+	else if (y1>y2)
+	{	
+		return false;
+	}
+	else if (y1=y2)
+	{						
+		if (m1<m2)
+		{
+			return true;
+		}
+		else if (m1>m2)
+		{
+			return false;						
+		}
+		else if (m1=m2)
+		{
+			if (d1<=d2)
+			{
+				return true;
+			}
+			else if (d1>d2)
+			{						
+				return false;								
+			}
+							
+		}
+	}
+	return true;											
+		
+}		
+
+function writeTime(s)
+{
+	var mydate=new Date(s)
+	
+	var year = mydate.getYear()
+	if (year < 1000)
+		year += 1900
+	var month = mydate.getMonth() + 1
+	if (month < 10)
+		month = "0" + month
+	var day = mydate.getDate()
+	if (day < 10)
+		day = "0" + day
+
+	var dayw = mydate.getDay()
+	
+	var hour = mydate.getHours()
+	if (hour < 10)
+		hour = "0" + hour
+	
+	var minute=mydate.getMinutes()
+	if (minute < 10)
+		minute = "0" + minute
+	var dayarray=new Array("Ch&#7911; Nh&#7853;t","Th&#7913; Hai","Th&#7913; Ba","Th&#7913; T&#432;","Th&#7913; N&#259;m","Th&#7913; S&#225;u","Th&#7913; B&#7843;y")
+	document.write(dayarray[dayw]+", "+day+"/"+month+"/"+year+",&nbsp;"+hour+":"+minute+" GMT+7")
+}
+
+function getTimeString(s)
+{
+	document.write("<span class=Date>");
+	writeTime(s);
+	document.write("</span>")
+}	
+
+function writeTimeEn(s)
+{
+	var mydate=new Date(s)
+	
+	var year = mydate.getYear()
+	if (year < 1000)
+		year += 1900
+	var month = mydate.getMonth() + 1
+	if (month < 10)
+		month = "0" + month
+	var day = mydate.getDate()
+	if (day < 10)
+		day = "0" + day
+
+	var dayw = mydate.getDay()
+	
+	var hour = mydate.getHours()
+	if (hour < 10)
+		hour = "0" + hour
+	
+	var minute=mydate.getMinutes()
+	if (minute < 10)
+		minute = "0" + minute
+	var dayarray=new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+	document.write(dayarray[dayw]+", "+month+"/"+day+"/"+year+",&nbsp;"+hour+":"+minute+" GMT+7")
+}
+
+function getTimeStringEn(s)
+{
+	document.write("<span class=Date>");
+	writeTimeEn(s);
+	document.write("</span>")
+}	
+function writeTimeCn(s)
+{
+	var mydate=new Date(s)
+	
+	var year = mydate.getYear()
+	if (year < 1000)
+		year += 1900
+	var month = mydate.getMonth() + 1
+	if (month < 10)
+		month = "0" + month
+	var day = mydate.getDate()
+	if (day < 10)
+		day = "0" + day
+
+	var dayw = mydate.getDay()
+	
+	var hour = mydate.getHours()
+	if (hour < 10)
+		hour = "0" + hour
+	
+	var minute=mydate.getMinutes()
+	if (minute < 10)
+		minute = "0" + minute
+	var dayarray=new Array("星 期 日", "星 期 一", "星 期 二", "星 期 三", "星 期 四", "星 期 五", "星 期 六")
+	document.write(dayarray[dayw]+", "+day+"/"+month+"/"+year+",&nbsp;"+hour+":"+minute+" GMT+7")
+}
+
+function getTimeStringCn(s)
+{
+	document.write("<span class=Date>");
+	writeTimeCn(s);
+	document.write("</span>")
+}	
+
+function createPlayer(strURL,strName,albumID,movieID,movieOrder,strEmbed,width,height)
+{
+	/*
+	var dvMovieCat = document.getElementById("dvMovieCat");
+	var dvLoadingCat = document.getElementById("dvLoadingCat");
+	dvLoadingCat.style.visibility = "visible";
+	//dvMovieCat.style.display = "none";
+	*/
+	document.getElementById("dvLoading").style.display="block";
+	var intLanguage = 0;
+    var strHTML;
+   
+	if(strEmbed == "")
+	{
+		strHTML="<OBJECT id=winMediaPlayerID ";
+				strHTML+="codeBase=http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,5,715 ";
+				strHTML+="type=application/x-oleobject height=371 ";
+				strHTML+="standby=\"Loading Microsoft Windows Media Player components...\" "; 
+				strHTML+="width=395 classid=CLSID:6BF52A52-394A-11D3-B153-00C04F79FAA6 ";
+				strHTML+="name=winMediaPlayer>";
+			strHTML+="<PARAM NAME=\"URL\" VALUE=\""+ strURL +"\"> ";
+			strHTML+="<PARAM NAME=\"rate\" VALUE=\"1\">";
+			strHTML+="<PARAM NAME=\"balance\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"currentPosition\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"defaultFrame\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"playCount\" VALUE=\"999\">";
+			strHTML+="<PARAM NAME=\"CursorType\" VALUE=\"-1\">";
+			strHTML+="<PARAM NAME=\"autoStart\" VALUE=\"1\">";
+			strHTML+="<PARAM NAME=\"currentMarker\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"invokeURLs\" VALUE=\"-1\">";
+			strHTML+="<PARAM NAME=\"volume\" VALUE=\"50\">";
+			strHTML+="<PARAM NAME=\"mute\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"stretchToFit\" VALUE=\"-1\">";
+			strHTML+="<PARAM NAME=\"windowlessVideo\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"enabled\" VALUE=\"1\">";
+			strHTML+="<PARAM NAME=\"fullScreen\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"enableContextMenu\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"enableErrorDialogs\" VALUE=\"0\"> \n";
+	        
+			strHTML+="<Embed type='application/x-mplayer2' pluginspage='http://www.microsoft.com/windows/windowsmedia/download/' filename='"+strURL+"' src='" + strURL + "' Name='MediaPlayerTV' "; 
+				strHTML+="width='395' ";
+				strHTML+="height='371' ";
+				strHTML+="AutoSize='1' ";
+				strHTML+="AutoStart='1' ";
+				strHTML+="ClickToPlay='1' ";
+				strHTML+="DisplaySize='1' ";
+				strHTML+="EnableContextMenu='0' ";
+				strHTML+="EnableFullScreenControls='1' "; 
+				strHTML+="EnableTracker='1' ";
+				strHTML+="Mute='0' ";
+				strHTML+="PlayCount='999' "; 
+				strHTML+="ShowControls='1' "; 
+				strHTML+="ShowAudioControls='1' "; 
+				strHTML+="ShowDisplay='0' ";
+				strHTML+="ShowGotoBar='0' ";
+				strHTML+="ShowPositionControls='1' "; 
+				strHTML+="ShowStatusBar='0' ";
+				strHTML+="ShowTracker='1'> ";
+				strHTML+="</embed> ";
+		strHTML+="</OBJECT>";
+		document.getElementById("MediaPlayer").innerHTML=strHTML;
+	}else
+	{	
+
+		var so = new SWFObject(strEmbed, "sotester", width, height, "8", "");
+			so.addParam("movie", strEmbed);
+			so.addParam("wmode", "transparent");
+			so.addParam("width", width);
+			so.addParam("height", height);
+			so.write("MediaPlayer");
+
+	}
+    
+    document.getElementById("VnAlbumMovie1_lblMovieName").innerHTML=strName;
+    document.getElementById("dvLoading").style.display="none";
+    LoadNext3Movie(albumID,movieID,movieOrder,intLanguage);
+}
+ 
+ function createPlayerEn(strURL,strName,albumID,movieID,movieOrder,strEmbed,width,height)
+{
+	/*
+	var dvMovieCat = document.getElementById("dvMovieCat");
+	var dvLoadingCat = document.getElementById("dvLoadingCat");
+	dvLoadingCat.style.visibility = "visible";
+	//dvMovieCat.style.display = "none";
+	*/
+	document.getElementById("dvLoading").style.display="block";
+	var intLanguage = 1;
+    var strHTML;
+   
+	if(strEmbed == "")
+	{
+		strHTML="<OBJECT id=winMediaPlayerID ";
+				strHTML+="codeBase=http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,5,715 ";
+				strHTML+="type=application/x-oleobject height=371 ";
+				strHTML+="standby=\"Loading Microsoft Windows Media Player components...\" "; 
+				strHTML+="width=395 classid=CLSID:6BF52A52-394A-11D3-B153-00C04F79FAA6 ";
+				strHTML+="name=winMediaPlayer>";
+			strHTML+="<PARAM NAME=\"URL\" VALUE=\""+ strURL +"\"> ";
+			strHTML+="<PARAM NAME=\"rate\" VALUE=\"1\">";
+			strHTML+="<PARAM NAME=\"balance\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"currentPosition\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"defaultFrame\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"playCount\" VALUE=\"999\">";
+			strHTML+="<PARAM NAME=\"CursorType\" VALUE=\"-1\">";
+			strHTML+="<PARAM NAME=\"autoStart\" VALUE=\"1\">";
+			strHTML+="<PARAM NAME=\"currentMarker\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"invokeURLs\" VALUE=\"-1\">";
+			strHTML+="<PARAM NAME=\"volume\" VALUE=\"50\">";
+			strHTML+="<PARAM NAME=\"mute\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"stretchToFit\" VALUE=\"-1\">";
+			strHTML+="<PARAM NAME=\"windowlessVideo\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"enabled\" VALUE=\"1\">";
+			strHTML+="<PARAM NAME=\"fullScreen\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"enableContextMenu\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"enableErrorDialogs\" VALUE=\"0\"> \n";
+	        
+			strHTML+="<Embed type='application/x-mplayer2' pluginspage='http://www.microsoft.com/windows/windowsmedia/download/' filename='"+strURL+"' src='" + strURL + "' Name='MediaPlayerTV' "; 
+				strHTML+="width='395' ";
+				strHTML+="height='371' ";
+				strHTML+="AutoSize='1' ";
+				strHTML+="AutoStart='1' ";
+				strHTML+="ClickToPlay='1' ";
+				strHTML+="DisplaySize='1' ";
+				strHTML+="EnableContextMenu='0' ";
+				strHTML+="EnableFullScreenControls='1' "; 
+				strHTML+="EnableTracker='1' ";
+				strHTML+="Mute='0' ";
+				strHTML+="PlayCount='999' "; 
+				strHTML+="ShowControls='1' "; 
+				strHTML+="ShowAudioControls='1' "; 
+				strHTML+="ShowDisplay='0' ";
+				strHTML+="ShowGotoBar='0' ";
+				strHTML+="ShowPositionControls='1' "; 
+				strHTML+="ShowStatusBar='0' ";
+				strHTML+="ShowTracker='1'> ";
+				strHTML+="</embed> ";
+		strHTML+="</OBJECT>";
+		document.getElementById("MediaPlayer").innerHTML=strHTML;
+	}else
+	{	
+
+		var so = new SWFObject(strEmbed, "sotester", width, height, "8", "");
+			so.addParam("movie", strEmbed);
+			so.addParam("wmode", "transparent");
+			so.addParam("width", width);
+			so.addParam("height", height);
+			so.write("MediaPlayer");
+
+	}
+    
+    document.getElementById("EnAlbumMovie1_lblMovieName").innerHTML=strName;
+    document.getElementById("dvLoading").style.display="none";
+    LoadNext3Movie(albumID,movieID,movieOrder,intLanguage);
+}
+
+function createPlayerCn(strURL,strName,albumID,movieID,movieOrder,strEmbed,width,height)
+{
+	/*
+	var dvMovieCat = document.getElementById("dvMovieCat");
+	var dvLoadingCat = document.getElementById("dvLoadingCat");
+	dvLoadingCat.style.visibility = "visible";
+	//dvMovieCat.style.display = "none";
+	*/
+	document.getElementById("dvLoading").style.display="block";
+	var intLanguage = 2;
+    var strHTML;
+   
+	if(strEmbed == "")
+	{
+		strHTML="<OBJECT id=winMediaPlayerID ";
+				strHTML+="codeBase=http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,5,715 ";
+				strHTML+="type=application/x-oleobject height=371 ";
+				strHTML+="standby=\"Loading Microsoft Windows Media Player components...\" "; 
+				strHTML+="width=395 classid=CLSID:6BF52A52-394A-11D3-B153-00C04F79FAA6 ";
+				strHTML+="name=winMediaPlayer>";
+			strHTML+="<PARAM NAME=\"URL\" VALUE=\""+ strURL +"\"> ";
+			strHTML+="<PARAM NAME=\"rate\" VALUE=\"1\">";
+			strHTML+="<PARAM NAME=\"balance\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"currentPosition\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"defaultFrame\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"playCount\" VALUE=\"999\">";
+			strHTML+="<PARAM NAME=\"CursorType\" VALUE=\"-1\">";
+			strHTML+="<PARAM NAME=\"autoStart\" VALUE=\"1\">";
+			strHTML+="<PARAM NAME=\"currentMarker\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"invokeURLs\" VALUE=\"-1\">";
+			strHTML+="<PARAM NAME=\"volume\" VALUE=\"50\">";
+			strHTML+="<PARAM NAME=\"mute\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"stretchToFit\" VALUE=\"-1\">";
+			strHTML+="<PARAM NAME=\"windowlessVideo\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"enabled\" VALUE=\"1\">";
+			strHTML+="<PARAM NAME=\"fullScreen\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"enableContextMenu\" VALUE=\"0\">";
+			strHTML+="<PARAM NAME=\"enableErrorDialogs\" VALUE=\"0\"> \n";
+	        
+			strHTML+="<Embed type='application/x-mplayer2' pluginspage='http://www.microsoft.com/windows/windowsmedia/download/' filename='"+strURL+"' src='" + strURL + "' Name='MediaPlayerTV' "; 
+				strHTML+="width='395' ";
+				strHTML+="height='371' ";
+				strHTML+="AutoSize='1' ";
+				strHTML+="AutoStart='1' ";
+				strHTML+="ClickToPlay='1' ";
+				strHTML+="DisplaySize='1' ";
+				strHTML+="EnableContextMenu='0' ";
+				strHTML+="EnableFullScreenControls='1' "; 
+				strHTML+="EnableTracker='1' ";
+				strHTML+="Mute='0' ";
+				strHTML+="PlayCount='999' "; 
+				strHTML+="ShowControls='1' "; 
+				strHTML+="ShowAudioControls='1' "; 
+				strHTML+="ShowDisplay='0' ";
+				strHTML+="ShowGotoBar='0' ";
+				strHTML+="ShowPositionControls='1' "; 
+				strHTML+="ShowStatusBar='0' ";
+				strHTML+="ShowTracker='1'> ";
+				strHTML+="</embed> ";
+		strHTML+="</OBJECT>";
+		document.getElementById("MediaPlayer").innerHTML=strHTML;
+	}else
+	{	
+
+		var so = new SWFObject(strEmbed, "sotester", width, height, "8", "");
+			so.addParam("movie", strEmbed);
+			so.addParam("wmode", "transparent");
+			so.addParam("width", width);
+			so.addParam("height", height);
+			so.write("MediaPlayer");
+
+	}
+    
+    document.getElementById("CnAlbumMovie1_lblMovieName").innerHTML=strName;
+    document.getElementById("dvLoading").style.display="none";
+    LoadNext3Movie(albumID,movieID,movieOrder,intLanguage);
+}
+
+/*
+ function createPlayerCn(strURL,strName,albumID,movieID,movieOrder)
+{
+
+	document.getElementById("dvLoading").style.display="block";
+	var intLanguage = 2;
+    var strHTML;
+    strHTML="<OBJECT id=winMediaPlayerID ";
+            strHTML+="codeBase=http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,5,715 ";
+            strHTML+="type=application/x-oleobject height=371 ";
+            strHTML+="standby=\"Loading Microsoft Windows Media Player components...\" "; 
+            strHTML+="width=395 classid=CLSID:6BF52A52-394A-11D3-B153-00C04F79FAA6 ";
+            strHTML+="name=winMediaPlayer>";
+        strHTML+="<PARAM NAME=\"URL\" VALUE=\""+ strURL +"\"> ";
+        strHTML+="<PARAM NAME=\"rate\" VALUE=\"1\">";
+        strHTML+="<PARAM NAME=\"balance\" VALUE=\"0\">";
+        strHTML+="<PARAM NAME=\"currentPosition\" VALUE=\"0\">";
+        strHTML+="<PARAM NAME=\"defaultFrame\" VALUE=\"0\">";
+        strHTML+="<PARAM NAME=\"playCount\" VALUE=\"999\">";
+        strHTML+="<PARAM NAME=\"CursorType\" VALUE=\"-1\">";
+        strHTML+="<PARAM NAME=\"autoStart\" VALUE=\"1\">";
+        strHTML+="<PARAM NAME=\"currentMarker\" VALUE=\"0\">";
+        strHTML+="<PARAM NAME=\"invokeURLs\" VALUE=\"-1\">";
+        strHTML+="<PARAM NAME=\"volume\" VALUE=\"50\">";
+        strHTML+="<PARAM NAME=\"mute\" VALUE=\"0\">";
+        strHTML+="<PARAM NAME=\"stretchToFit\" VALUE=\"-1\">";
+        strHTML+="<PARAM NAME=\"windowlessVideo\" VALUE=\"0\">";
+        strHTML+="<PARAM NAME=\"enabled\" VALUE=\"1\">";
+        strHTML+="<PARAM NAME=\"fullScreen\" VALUE=\"0\">";
+        strHTML+="<PARAM NAME=\"enableContextMenu\" VALUE=\"0\">";
+        strHTML+="<PARAM NAME=\"enableErrorDialogs\" VALUE=\"0\"> \n";
+        
+        strHTML+="<Embed type='application/x-mplayer2' pluginspage='http://www.microsoft.com/windows/windowsmedia/download/' filename='"+strURL+"' src='" + strURL + "' Name='MediaPlayerTV' "; 
+            strHTML+="width='395' ";
+            strHTML+="height='371' ";
+            strHTML+="AutoSize='1' ";
+            strHTML+="AutoStart='1' ";
+            strHTML+="ClickToPlay='1' ";
+            strHTML+="DisplaySize='1' ";
+            strHTML+="EnableContextMenu='0' ";
+            strHTML+="EnableFullScreenControls='1' "; 
+            strHTML+="EnableTracker='1' ";
+            strHTML+="Mute='0' ";
+            strHTML+="PlayCount='999' "; 
+            strHTML+="ShowControls='1' "; 
+            strHTML+="ShowAudioControls='1' "; 
+            strHTML+="ShowDisplay='0' ";
+            strHTML+="ShowGotoBar='0' ";
+            strHTML+="ShowPositionControls='1' "; 
+            strHTML+="ShowStatusBar='1' ";
+            strHTML+="ShowTracker='1'> ";
+            strHTML+="</embed> ";
+    strHTML+="</OBJECT>";
+    document.getElementById("MediaPlayer").innerHTML=strHTML;
+    document.getElementById("CnAlbumMovie1_lblMovieName").innerHTML=strName;
+    document.getElementById("dvLoading").style.display="none";
+    LoadNext3Movie(albumID,movieID,movieOrder,intLanguage);
+}
+*/
+
+
+function setCenterScreenDownload()
+{
+	window.focus();
+	window.moveTo((screen.width-367)/2,(screen.height-110)/2);                                       
+}
+
+var xmlHttp = null;
+		
+function GetXmlHttpObject()
+{
+	var xmlHttp=null;
+	try
+		{
+		xmlHttp=new XMLHttpRequest();
+		if (xmlHttp.overrideMimeType) {
+			xmlHttp.overrideMimeType('text/html');
+		}
+	}
+	catch (e)
+		{
+		try
+		{
+		xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+		}
+		catch (e)
+		{
+		xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		}
+	return xmlHttp;
+}
+
+function LoadNext3Movie(albumID,movieID,movieOrder,intLanguage)
+{
+	xmlhasVote = GetXmlHttpObject();
+	if(xmlhasVote == null)
+	{
+		alert("Trình duyệt của bạn không hỗ trợ Ajax. Vui lòng cập nhật trình duyệt mới nhất.");
+	}
+	
+	var url = "../vn/processInfo.aspx";
+	var parameters = "action=4&AlbumId="+albumID+"&MovieID="+movieID + "&order="+movieOrder + "&lang=" + intLanguage;
+	parameters=encodeURI(parameters);
+	xmlhasVote.onreadystatechange = hasLoadMovie
+	xmlhasVote.open("POST", url, true);
+	xmlhasVote.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhasVote.setRequestHeader("Content-length",parameters.length);
+	xmlhasVote.setRequestHeader("Connection","close");
+	xmlhasVote.send(parameters);
+}
+	
+	function hasLoadMovie()
+	{
+		if(xmlhasVote.readyState == 4)
+		{
+			var strInfo = xmlhasVote.responseText;	
+			var dvMovieCat = document.getElementById("dvMovieCat");
+			dvMovieCat.innerHTML = strInfo;
+/*			
+			var dvMovieCat = document.getElementById("dvMovieCat");
+			var dvLoadingCat = document.getElementById("dvLoadingCat");
+			dvLoadingCat.style.visibility = "hidden";
+			//dvMovieCat.style.display = "block";
+*/			
+			/*
+			if (strInfo != 0)
+			{
+			
+				
+				dvStarRating.style.display = "block";
+				dvStarRating.innerHTML = "ĐÃ BÌNH CHỌN";
+				
+				var dvNumber = document.getElementById("dvNumber");
+				dvNumber.style.display = "block";
+				dvNumber.innerHTML = strInfo;
+			
+				var dvFinishVote = document.getElementById("dvFinishVote");
+				dvFinishVote.style.display = "block";
+			}
+			*/
+		}
+	}
+
+	function RemoveUnicode(obj) {
+	    var str;
+	    if (eval(obj))
+	        str = eval(obj).value;
+	    else
+	        str = obj;
+	    str = str.toLowerCase();
+	    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+	    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+	    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+	    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+	    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+	    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+	    str = str.replace(/đ/g, "d");
+	    str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'| |\"|\&|\#|\[|\]|~|$|_/g, "-");
+	    /* tìm và thay thế các kí tự đặc biệt trong chuỗi sang kí tự - */
+	    str= str.replace(/-+-/g,"-"); //thay thế 2- thành 1-  
+	    str = str.replace(/^\-+|\-+$/g, "");
+	    //cắt bỏ ký tự - ở đầu và cuối chuỗi 
+	    //eval(obj).value = str.toUpperCase();
+	    return str;
+	}
+
+	function ParseUrl(objsent,objreceive) {
+	    objreceive.value = RemoveUnicode(objsent);
+	}
+

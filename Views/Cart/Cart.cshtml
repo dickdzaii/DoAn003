@@ -1,0 +1,88 @@
+﻿@using DoAn003.Models.ListEntities;
+@using DoAn003.Models;
+
+@model List<Cart>
+@{
+    ViewBag.Title = "Giỏ Hàng";
+    Layout = "~/Views/Shared/Cli/TrangChu.cshtml";
+    WebCayCanhDB data = new WebCayCanhDB();
+    LoaiSanPhamModel qllsp = new LoaiSanPhamModel();
+    var loai = qllsp.DanhSachLoai();
+
+}
+
+@if (Model == null || Model.Count == 0)
+{
+    <div class="text-center">
+        <div class="col col-md-6">
+            <span>Giỏ hàng của bạn rỗng</span>
+        </div>
+        <div class="col col-md-6">
+            <span>tiếp tục mua sắm&nbsp;</span><span><a href="~/TrangChu/SanPham">tại đây</a></span>
+        </div>
+    </div>
+}
+else
+{
+    <section class="ftco-section ftco-cart">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 ftco-animate">
+                    <div class="cart-list">
+                        <table class="table">
+                            <thead class="thead-primary">
+                                <tr class="text-center">
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Đơn giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Thành tiền</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                @foreach (var item in Model)
+                                {
+                                    var tenloai = @qllsp.Layloaitheosp(item.Masp).TenLoai;
+                                    <tr class="text-center">
+                                        <td class="product-remove"><a onclick="return confirm('bạn có muốn xóa sản phẩm khỏi giỏ hàng?')" href="@Url.Action("XoaKhoiGio","Cart",new { Masp=item.Masp})"><span class="ion-ios-close"></span></a></td>
+
+                                        <td class="image-prod"><div class="img" ><img src="~/Assets/Clt/images/Products/@tenloai/@item.Anh"  height="60" width="60"/></div></td>
+
+                                        <td class="product-name">
+                                            <h3><a href="~/TrangChu/ChiTietSanPham/@item.Masp" title="@item.Tensp">@item.Tensp</a></h3>
+                                            <!--<p>Far far away, behind the word mountains, far from the countries</p>-->
+                                        </td>
+
+                                        <td class="price">@string.Format("{0:#,##0}",item.DonGia) VNĐ</td>
+
+                                        <td class="quantity">
+                                            <div class="input-group mb-3"><a href="~/Cart/giam1sanpham/@item.Masp" class="btn btn-success"><i>-</i></a>
+                                            
+                                                <input type="text" name="quantity" class="quantity form-control input-number" value="@item.SL" readonly min="1" max="100">
+                                           
+                                            <a href="~/Cart/tang1sanpham/@item.Masp" class="btn btn-success"><i>+</i></a></div>
+
+                                        </td>
+
+                                        <td class="total">@string.Format("{0:#,##0}", item.ThanhTien) VNĐ</td>
+                                    </tr><!-- END TR-->
+                                }
+                                <tr><td colspan="3"> Tổng cộng (chưa bao gồm Shipping fee):&nbsp;@string.Format("{0:#,##0}", Model.Sum(n => n.ThanhTien)) VNĐ</td><td colspan="2"><a  href="~/Cart/DatHang" class="btn btn-primary py-3 px-4">Tiến hành đặt hàng</a></td></tr>
+                                
+                            </tbody>
+                        </table>
+                        <div class="col col-md-6">
+                            <span>tiếp tục mua sắm&nbsp;</span><span><a href="~/TrangChu/SanPham">tại đây</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </section>
+}
+
+
+

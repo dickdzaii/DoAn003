@@ -1,0 +1,39 @@
+﻿@using DoAn003.Models;
+@using DoAn003.Models.ListEntities;
+@{
+    ViewBag.Title = "signup";
+    Layout = "~/Views/Shared/Cli/TrangChu.cshtml";
+}
+
+<div style="display:flex;justify-content:center;" class="login-form justify-content-center align-items-center">
+    <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+        <form class="info" method="post" action="~/DangNhapVaDangKy/signup">
+            <div class="form-group">
+                <input class="form-control text-left px-3" type="text" name="hoten" id="hoten" placeholder="họ tên của bạn" required checked="checked" />
+            </div>
+            <div class="form-group">
+                <input class="form-control text-left px-3" type="text" name="diachi" id="diachi" placeholder="địa chỉ" required checked="checked" />
+            </div>
+            <div class="form-group">
+                <input class="form-control text-left px-3" type="text" name="sdt" id="sdt" placeholder="số điện thoại" required checked="checked" />
+            </div>
+            <div class="form-group">
+                <select class="form-control text-left px-3" type="text" name="gt" id="gt" placeholder="" required checked="checked">
+                    <option value="nam">nam </option>
+                    <option value="nữ"> nữ</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input class="form-control text-left px-3" type="datetime" name="ngaysinh" id="ngaysinh" placeholder="ngày sinh" required checked="checked" />
+            </div>
+            <div class="form-group">
+                <input class="form-control text-left px-3" type="email" name="email" id="email" placeholder="email của bạn" required checked="checked" />
+            </div>
+            <div class="form-group">
+                <input class="form-control text-left px-3" type="password" name="mk" id="mk" placeholder="mật khẩu" required />
+            </div>
+            <button type="submit" class="btn btn-success">Đăng ký</button>
+            <button type="reset" class="btn btn-danger">Làm lại</button>
+        </form>
+        </div>
+</div>

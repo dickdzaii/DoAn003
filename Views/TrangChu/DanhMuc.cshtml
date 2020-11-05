@@ -1,0 +1,76 @@
+﻿@using DoAn003.Models;
+@using DoAn003.Models.ListEntities;
+@using PagedList.Mvc;
+@model PagedList.PagedList<SanPham>
+@{
+    ViewBag.Title = ViewBag.title;
+    Layout = "~/Views/Shared/Cli/TrangChu.cshtml";
+}
+@{ 
+    WebCayCanhDB data = new WebCayCanhDB();
+    var loai = data.LoaiSanPham.OrderBy(s => s.MaLoai).ToList();
+    LoaiSanPhamModel qllsp = new LoaiSanPhamModel();
+
+
+}
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 mb-5 text-center">
+                <ul class="product-category">
+                    <li><a href="~/TrangChu/SanPham">Tất cả sản phẩm</a></li>
+                    @foreach (var item in loai)
+                    {
+                        <li><a href="~/TrangChu/DanhMuc/@item.MaLoai">@item.TenLoai</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                var tenloai = @qllsp.Layloaitheosp(item.MaSanPham).TenLoai;
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="product">
+                        <a href="~/TrangChu/ChiTietSanPham/@item.MaSanPham" class="img-prod">
+                            <img class="img-fluid" src="~/Assets/Clt/images/Products/@tenloai/@item.Anh" alt="Colorlib Template">
+                            <!-- <span class="status">30%</span>-->
+                            <div class="overlay"></div>
+                        </a>
+                        <div class="text py-3 pb-4 px-3 text-center">
+                            <h3><a href="~/TrangChu/ChiTietSanPham/@item.MaSanPham" title="@item.TenSanPham">@item.TenSanPham</a></h3>
+                            <div class="d-flex">
+                                <div class="pricing">
+                                    <p class="price"><!--<span class="mr-2 price-dc">$120.00</span>--><span class="price-sale">Giá: @string.Format("{0:#,##0}", item.GiaBan) đồng</span></p>
+                                </div>
+                            </div>
+                            <div class="bottom-area d-flex px-3">
+                                <div class="m-auto d-flex">
+                                    <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+                                        <span><i class="ion-ios-menu"></i></span>
+                                    </a>
+                                    <a href="@Url.Action("ThemVaoGio","Cart", new { Masp=item.MaSanPham})" class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                        <span><i class="ion-ios-cart"></i></span>
+                                    </a>
+                                    <a href="#" class="heart d-flex justify-content-center align-items-center ">
+                                        <span><i class="ion-ios-heart"></i></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+        <div class="row mt-5">
+            <div class="col text-center">
+                <div class="block-27">
+                    @Html.PagedListPager(Model, Page => Url.Action("DanhMuc", new { Page = Page }))
+                </div>
+                    </div>
+                </div>
+            </div>
+</section>
+

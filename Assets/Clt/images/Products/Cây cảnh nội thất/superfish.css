@@ -1,0 +1,82 @@
+ 
+.sf-menu-phone {display:block;background: #fff;}
+.sf-menu-phone li { float:left;width:100%; background:#FFF; color:#333;	position: relative; font-size: 12px;  padding: 0;list-style:none}
+.sf-menu-phone li a { display: inline-block;  color: #333;}
+.sf-menu-phone li > a {padding: 10px 15px; display: block;font-size: 12px;}
+.sf-menu-phone li li a {padding: 8px 5px 8px 15px; display: block;font-size: 12px;}
+.sf-menu-phone li li li a {padding: 10px 15px 10px 35px; display: block;}
+.sf-menu-phone li a:hover { color: #000; }
+.sf-menu-phone li li:first-child{border-top: 1px solid #DDD}
+.sf-menu-phone li li {font-size: 12px;}
+.sf-menu-phone li li:last-child { padding-bottom: 0 !important;  }
+.sf-menu-phone li i { position: absolute; display: block;right: 0;}
+.sf-menu-phone  li i {top: 0px; color: #999; font-size: 11px;  padding: 10px 10px;  }
+.sf-menu-phone  li i.icon-angle-up:before {content:'\f068' !important}
+.sf-menu-phone li i:hover { cursor: pointer; }
+.sf-menu-phone li i.opened { background-position: center 7px; }
+
+/** dropdown **/
+.sf-menu-phone ul {  width: auto;  padding: 0px 0px;  display: none;  }
+.sf-menu-phone  li.active > a > span {color: inherit;}
+.sf-menu-phone  li.active > a,
+.sf-menu-phone  li:hover > a { color: #000;}
+
+.sf-menu-phone li li.active > a,
+.sf-menu-phone li li a:hover {color: #000;}
+
+  
+
+@media only screen and (max-width: 992px){
+#menu-gadget {border-bottom:1px solid #ccc;	margin-bottom: 10px;}
+#menu-icon { color: #FFF; cursor: pointer; display: block; font-size: 14px; padding:10px;
+    text-transform: uppercase;position:relative; text-align:left}
+#menu-icon:after { float:right; content:"\f055"; background-image: none; background-position: 0 0;  font-family: FontAwesome;  width: auto; display: inline-block; text-decoration: inherit; text-align: center; font-size:20px; color: #FFF; vertical-align:middle;}
+#menu-icon.active:after {content:"\f056";}
+
+ 
+
+.sf-menu-phone .parent .sf-menu-phone{display:none}
+
+
+
+
+
+ 
+
+
+	
+/*
+.sf-menu-phone {
+	display:none;
+	background: #fff;
+    border-top:none;
+    box-shadow:0 0px 13px rgba(0,0,0,0.15);
+    -moz-box-shadow:0 0px 13px rgba(0,0,0,0.15);
+    -webkit-box-shadow:0 0px 13px rgba(0,0,0,0.15);}*/
+	
+/*
+
+.sf-menu-phone li { position: relative;font-size: 12px; font-weight: bold; padding: 0; list-style:none;}
+  .sf-menu-phone li a { display: inline-block;  color: #333;}
+  .sf-menu-phone  li > a {padding: 10px 15px; display: block;font-size: 15px;}
+
+  .sf-menu-phone  li li  a {padding: 8px 5px 7px 15px; display: block;font-size: 12px;}
+  .sf-menu-phone  li li li a {padding: 10px 15px 10px 35px; display: block;}
+  .sf-menu-phone li a:hover { color: #B90100; }
+  .sf-menu-phone li li {font-size: 14px;}
+  .sf-menu-phone li li.last { padding-bottom: 0 !important;  }
+  .sf-menu-phone li i {position: absolute; display: block; top: 2px; right: 0; height: 24px; width: 24px;} 
+  .sf-menu-phone  li i.icon-angle-up:before {content:'\f078' !important}
+  .sf-menu-phone li i:hover { cursor: pointer; }
+  .sf-menu-phone li i.opened { background-position: center 7px; } */
+
+  /** dropdown **/
+  
+  /*
+  .sf-menu-phone ul {  width: auto;  padding: 0px 0px;  display: none;  }
+  .sf-menu-phone  li.active > a > span {color: inherit;}
+  .sf-menu-phone  li.active > a, .sf-menu-phone  li:hover > a { color: #000;}
+  .sf-menu-phone li li.active > a,
+  .sf-menu-phone li li a:hover {color: #ccc;}*/
+
+}

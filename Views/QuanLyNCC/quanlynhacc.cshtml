@@ -1,0 +1,219 @@
+﻿@model IEnumerable<DoAn003.Models.NhaCungCap>
+@{
+    ViewBag.Title = "Quản Lý Nhà Cung Cấp";
+    Layout = "~/Views/Shared/Svr/QuanTri.cshtml";
+}
+
+<div class="right_col" role="main">
+    <h3>Danh Sách Nhà Cung Cấp</h3>
+    <a href="#" class="btn btn-primary" onclick="themncc()">Thêm Nhà Cung Cấp</a>
+    <table class="table table-hover" >
+        <thead>
+            <tr>
+                <td ><input type="checkbox" class="checkbox checkbox-inline" /></td>
+                <td>
+                    Mã Nhà Cung Cấp
+                    <a><i class="glyphicon glyphicon-collapse-down"></i></a>
+                </td>
+                <td>
+                    Tên Nhà Cung Cấp
+                    <a><i class="glyphicon glyphicon-collapse-down"></i></a>
+                </td>
+                <td>
+                    Địa Chỉ
+                    <a><i class="glyphicon glyphicon-collapse-down"></i></a>
+                </td>
+                <td>
+                    Số Điện thoại
+                    <a><i class="glyphicon glyphicon-collapse-down"></i></a>
+                </td>
+                <td>
+                    Sửa thông tin
+                </td>
+                <td>
+                    Xóa
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ncc in Model)
+            {
+                <tr>
+                    <td><input type="checkbox" class="checkbox" /></td>
+                    <td>
+                        @ncc.MaNhaCungCap
+                    </td>
+                    <td>
+                        @ncc.TenNhaCungCap
+                    </td>
+                    <td>
+                        @ncc.DiaChi
+                    </td>
+                    <td>
+                        @ncc.SoDienThoai
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" onclick="sua(@ncc.MaNhaCungCap)"><i class="glyphicon glyphicon-pencil"></i></a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" onclick="return confirm('bạn có chắc không?')" href="~/QuanLyLoai/xoamotloai/@ncc.MaNhaCungCap"><i class="glyphicon glyphicon-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title" id="titlethem">Thêm Ncc</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                <form id="demo-form2" method="post" enctype="multipart/form-data" action="~/QuanLyNCC/themvasuancc" data-parsley-validate class="form-horizontal form-label-left">
+                    <input type="hidden" id="aoe" name="aoe" value="0" /> @*0 là sửa, 1 là thêm*@
+                    <div class="form-group" id="anhienma">
+                        @*ẩn hiện mã*@
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            Mã Nhà Cung Cấp <span class="required"></span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="mancc" name="mancc" readonly style="cursor:not-allowed" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            Tên Nhà Cung Cấp <span class="required" style="color:red" id="dausao">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="tenncc" name="tenncc" required class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                            Địa Chỉ <span class="required"></span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id="diachi" name="diachi" class="form-control col-md-7 col-xs-12" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                            Số điện thoại <span class="required"></span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id="sdt" name="sdt" class="form-control col-md-7 col-xs-12" type="text">
+                        </div>
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+
+                            @*<button type="submit" class="btn btn-success" id="btnThem" onclick="themnhanvien(@item.MaNV,@item.TenNV,@item.NgaySinh,@item.DiaChi,@item.MaPhong,@item.NgayNhap,@item.Anh)">Thêm</button>*@
+                            <button type="submit" class="btn btn-success">Lưu</button>
+
+                            <button class="btn btn-primary" type="reset">Làm mới</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="viewone">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">View dữ liệu</h3>
+            </div>
+            <div class="modal-body">
+
+                <form id="demo-form2" method="get" enctype="multipart/form-data" action="" data-parsley-validate class="form-horizontal form-label-left">
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            Mã Loại
+                        </label>
+                        <label class="control-label col-sm-6" id="vmaloai">
+
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            Tên Loại
+                        </label>
+                        <label class="control-label col-sm-6 " id="vtenloai">
+
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            Mô tả
+                        </label>
+                        <label class="control-label col-sm-6" id="vmota">
+
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function view1loai(id) {
+        $.get("/QuanLyLoai/laymotloai", { id: id }, function (data) {
+            //console.log(data)
+            $("#vmaloai").html(data.MaLoai);
+            $("#vtenloai").html(data.TenLoai);
+            $("#vmota").html(data.MoTa);
+        });
+        $("#viewone").modal("show");
+    }
+
+    function themncc() {
+
+        $("#titlethem").html("Thêm Nhà Cung Cấp");
+        $("#mancc").val("");
+        $("#tenncc").val("");
+        $("#diachi").val("");
+        $("#sdt").val("");
+        $("#aoe").val("1");
+        $("#anhienma").show("");
+        $("#myModal").modal("show");
+    }
+
+    function sua(id) {
+        $("#titlethem").html("Sửa Nhà Cung Cấp");
+        $.get("/QuanLyNCC/laymotncc", { id: id }, function (data) {
+            //console.log(data)
+            $("#mancc").val(data.MaNhaCungCap);
+            $("#tenncc").val(data.TenNhaCungCap);
+            $("#diachi").val(data.DiaChi);
+            $("#sdt").val(data.SoDienThoai);
+            $("#aoe").val("0");
+            $("anhienma").hide();
+        });
+        $("#myModal").modal("show");
+    }
+
+</script>
+
+
+

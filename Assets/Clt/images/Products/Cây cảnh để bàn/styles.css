@@ -1,0 +1,617 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&subset=vietnamese');
+@charset "utf-8";
+/* CSS Document */
+.bg1{background:#F00; color:#ff0}
+.bg2{background:#F0f; color:#ff0}
+.bg3{background:#Ff0; color:#f00}
+.bg4{background:#F36; color:#6F3}
+.bg5{background:#660; color:#93C}
+.bg6{background:#C30; color:#999}
+/*ul, li {list-style:none; margin:0; padding:0} */
+:after, :before {font-family:'FontAwesome';}
+:focus { outline:/*1px solid #FFF*/ none}
+h1, h2, h3, h4, h5, h6 {/*font-family: 'Roboto Condensed', sans-serif;; */margin:0; padding:0 }
+body {font-family: 'Open Sans', sans-serif;;  line-height: 150%;font-size: 14px; overflow-x:hidden; margin:0; padding:0;  color:#333!important;  position:relative }
+a {color:#333; text-decoration:none}
+a:hover {color: #f28902; text-decoration:none}
+a ,a:hover, img, li  { text-decoration: none!important;  cursor:pointer; 
+-moz-transition: .4s ease;
+-o-transition: .4s ease;
+-webkit-transition: .4s ease;
+ transition: .4s ease;
+}
+ 
+::-webkit-input-placeholder {color: #AAA} 
+:-moz-placeholder {color: #AAA}  
+::-moz-placeholder {color: #AAA} 
+:-ms-input-placeholder {color: #AAA} 
+#navbar {width:100%; float:left; top: -100px; background:#3daa12}
+.sticky { position: fixed; width: 100%; z-index:99;  top: 30px!important;
+-moz-transition: .4s ease;
+-o-transition: .4s ease;
+-webkit-transition: .4s ease;
+ transition: .4s ease;
+} 
+.sticky + .content { padding-top: 60px;}
+.bg-dark {background:#EEE; width:100%; float:left;}
+
+.news-col ul, .news-col ul li, .login ul , .login ul li, .product-block ul,  .product-block ul li, .menu-footer ul , .menu-footer ul li, .col-signin-left ul, .col-signin-left ul li, .form-contact ul, .form-contact ul li, .intro-delevery ul, .intro-delevery ul li, .search-page ul, .search-page ul li, 
+.result ul, .result ul li, .hot-news ul, .hot-news ul li, .news-page ul, .news-page ul li, .news-related ul, .news-related ul li, .part-buy ul, .part-buy ul li, .login-cart ul, .login-cart ul li, .order-product ul, .order-product ul li
+.comment-form ul, .comment-form ul li ,.comment-block ul, .comment-block ul li , .info-cus-delivery ul, .info-cus-delivery ul li, .account-col ul, .account-col ul li
+{list-style:none; margin:0; padding:0} 
+
+
+
+header {width:100%; float:left; margin-top:30px }
+.top-head {width:100%; float:left; background: #EEE; position: fixed; top:0; left:0; z-index:999}
+.hotline {float:left; padding-top:5px; color: #666}
+.hotline a {font-weight:bold; font-size:14px;  }
+.hotline i {font-size:20px; color:#F00; float:left; margin-top:2px; margin-right:5px}
+ 
+.cart {float:right; background:#F28902; color:#FFF; padding:5px 10px; margin-left:10px; font-size:11px} 
+.cart i {margin-right:5px; font-size:20px }
+.cart a {color:#FFF; font-size:12px}
+.cart a b {color:#FF0; font-size:14px}
+ 
+.login {float:right; color: #333; position: relative}
+.login ul > li {float:left; padding: 5px 0 5px 18px; text-transform:uppercase }
+.login ul > li i {margin-right: 5px}
+.login ul li a {font-weight:600; font-size:11px}
+.login ul li ul {display:none; top: 31px; padding:10px 15px; position:absolute; left:0; width:200px; background:#FFF; z-index:999; border:1px solid #EEE; border-top: none}
+.login ul li:hover ul {display:block;}
+.login ul li ul li {width:100%; padding:0; margin:5px 0; float:left}
+.login ul li ul li a {background:#999; color: #FFF; padding: 4px 10px 4px 0 ; width:100%; float:left;  border-radius:4px; font-weight:normal; text-transform:capitalize ;border-bottom:2px solid rgba(0,0,0,0.2) }
+.login ul li ul li a i {width:30px; border-right:1px solid rgba(0,0,0,0.1); text-align:center; font-size:20px; margin-right:10px}
+.login ul li ul li a.login {background: #F28902}
+.login ul li ul li a.facebook {background:#5670a3}
+.login ul li ul li a.google {background:#dd4c39}
+.login ul li ul li a:hover {background:#999; border-bottom:2px solid rgba(0,0,0,0.5) }
+ 
+.title-signin {width: 100%; float: left;  color: #444; margin-bottom: 10px; border-bottom:1px solid #CCC; margin-bottom:20px; padding-bottom:10px}
+.title-signin h2 {font-weight: 600; font-size: 18px; text-transform: uppercase; float:left}
+.title-signin h4 {font-size:13px; float:left; margin:0 10px; padding: 4px 0 0 0;}
+.title-signin a {font-weight:bold; color: #F28902; font-size:12px; padding: 2px 0 0 0; float: left;}
+.title-signin a:hover {color: #3daa12}
+.col-signin-left {width:50%; float:left;  padding-right:40px; border-right:1px solid #DDD}
+.col-signin-right {width:50%; float:left; padding-left:40px}	
+.col-signin-left ul li {width:100%; margin:10px 0; }
+.col-signin-left input[type="textbox"], .col-signin-left textarea { border: 1px solid #CCC; border-bottom-width: 2px; border-radius: 3px; width: 100%; padding: 7px 7px} 
+.col-signin-left input[type="submit"] { padding: 10px 35px; border-radius: 3px;  border: none;  background: #F28902;  color: #FFF;  float: left;  text-transform: uppercase;  margin-right: 5px;}
+
+.btn-facebook, .btn-google-plus { color: #fff; position:relative; max-width: 250px; background-color: #3b5998; border-color: rgba(0,0,0,0.2); margin:0 auto}
+ .btn-google-plus{ background-color: #dd4b39;}
+.btn-social :first-child { position: absolute; left: 0;top: 0; bottom: 0; width: 32px !important; line-height: 34px !important; font-size: 1.6em!important; text-align: center; border-right: 1px solid rgba(0,0,0,0.2);}
+.col-signin-right a:hover {color:#FFF} 
+.button-signin {clear:both; width:100%; margin-top:20px; border-top: 1px solid #DDD; padding-top:20px; float:left}
+.button-signin button, .button-signin input[type="submit"], .button-signin input[type="reset"]{ padding: 10px 20px; background:#F28902; float:left; color:#FFF; border: none;  text-transform: uppercase;  margin-right: 5px; margin-bottom:10px}
+  
+.logo {width:110px; float:left}
+.logo a{width:100%; float:left; padding:10px 10px 10px 0}
+.logo img {height:80px}
+.widget-head { float:left; font-size:20px; color:#090;  margin-top:20px }
+.widget-head span {font-size:20px; font-weight:bold; color:#FF8000; float:left; margin-top:10px}
+
+.search-block {width:300px; float:right; margin-top:30px}
+.search-block input[type="text"], .search-block input[type="textbox"] {border:1px solid #CCC; border-bottom-width:2px; border-right:none ;padding:7px 10px; width:calc(100% - 100px); float:left; 
+border-radius:5px 0 0 5px}
+.search-block input[type="button"] {border:none; background:#F28902; float:left; color:#FFF; width:100px; padding:9px 0 8px 0; border-radius:0 5px 5px 0}
+
+.banner-slider {width:100%; float:left}
+.banner-small {width:50%; float:left; margin:20px 0}
+.banner-small img {width:100%}
+.banner-small.small-1 {margin-right:0px}
+.banner-small.small-2 {margin-left:0px}
+
+.col-left {width:25%; float:left}
+.main-block {width:calc(75% - 15px); float:right; margin-left:15px} 
+.block-col {width:100%; float:left; margin-bottom:20px}
+.block-col-title {width:100%; float:left; } 
+.block-col-title h3 {width:100%; float:left; background:#3daa12; height:50px; line-height:50px; font-size:14px; color:#FFF; font-weight:bold; padding-left:10px;}
+.block-col-content {width:100%; float:left; background:#FFF}
+  
+.menu-left {background:#FFF}
+.menu-left h3{font-size:14px; background:#3daa12; padding:15px 10px; border-bottom:1px solid #FFF; font-weight:bold; color:#FFF}
+.menu-left ul, .menu-left ul li {list-style:none; margin:0; padding:0}
+.menu-left ul li:last-child h3{border-bottom:none}
+.menu-left ul li li a{padding:6px 10px; border-bottom:1px solid #EEE; display:block}
+.menu-left ul li li a:hover {background:#DDD; color:#FC851D}
+.menu-left ul li li:last-child{border-bottom:none}
+
+.news-col {width:100%; float:left; background:#FFF}
+.news-col ul li {width:100%; float:left; padding:15px; color: #666; border-bottom:1px solid #EEE; line-height:1.5}
+.news-col ul li:last-child {border:none}
+.news-col .pic-news {width: 90px; height:90px; border:1px solid #EEE; float:left; margin:0 10px 10px 0; background:#F3F3F3 }
+.news-col .pic-news a{width: 90px; height:90px;text-align:center; display:table-cell; vertical-align:middle;  }
+.news-col .pic-news img{max-width:100%; max-height: 100%}
+.news-col h6 {float:left; width: calc(100% - 100px); font-size:14px; color:#000; line-height:1.3; margin-bottom:5px; text-align: left; font-weight:600;}
+.news-col h6 a {color:#000}
+.news-col h6 a:hover {color: #f28902}
+.link-web select{width:100%; padding:5px;}  
+.fanpage {width:100%; float:left}
+ 
+ 
+.title {width:100%; float:left; color: #333333; font-size:18px;  text-transform:uppercase; margin-bottom:20px;  text-align: left; border-bottom: 1px solid #FF8000}
+.title a {color: #FF8000;width:100%; float:left;  padding-bottom:10px; position:relative; font-weight:bold}
+ 
+.product-block  {width:100%;float:left;}
+.product-block ul li {width:32.14%;float:left; margin-right:15px; margin-bottom:15px; background:#FFF}
+.product-block ul li:nth-child(3n) {margin-right:0;}
+.product-block ul li:nth-child(3n+1) {clear:both} 
+.product-block ul li .product {width:100%; float:left; padding-bottom:10px}
+.product-block ul li .pic-news {position:relative; width:100%;float:left; background:#FFF; margin-bottom:5px;  overflow:hidden;}
+.product-block ul li .pic-news>a {width:500px; height:270px; text-align:center; display:table-cell; vertical-align:middle; }
+.product-block ul li .pic-news>a:hover {
+transform: scale(1.2);
+-webkit-transform: scale(1.2);
+-moz-transform: scale(1.2);
+-o-transform: scale(1.2);
+-ms-transform: scale(1.2);
+}
+
+.product-block ul li .pic-news img {max-width:100%; max-height:100%}
+.product-block ul li h3 {font-size:14px; font-weight:bold;  width:100%; line-height: 150%; padding:0 10px; float:left; overflow:hidden; height:40px }
+.product-block ul li h3 a{color:#000; display: table-cell; vertical-align: middle; height:40px; margin:0; padding:0}
+.product-block ul li h3 a:hover {color: #f28902}
+ 
+.product-block ul li .price-product {color:#F00; font-size:18px;  width:calc(100% - 102px); float:left; padding:10px 0 0 10px; height:50px }
+.product-block ul li .price-product span {clear:both; font-size:12px; color:#999; float:left ;width:100%; text-decoration:line-through}
+.product-block ul li .cart-product { float:right ; margin-right:10px}
+.product-block ul li .cart-product a {width:42px; background:#F28902; color:#FFF; float:left; text-align:center; margin:10px 0 0 4px; padding:6px 0}
+.product-block ul li .cart-product a:hover { background:#3DAA12;}
+
+  
+footer{width:100%; float:left; padding: 20px 0 ; background:#FFF } 
+.icon-tinnhiem {width:120px; float:left; text-align:center; margin-right:30px}
+.icon-tinnhiem a {float:left; margin: 0}
+
+.menu-footer {width:calc(50% - 150px); float:left;}
+.menu-footer ul li {width:100%; float:left;}
+.menu-footer ul li a {color: #333; float:left; font-size:14px; padding:2px 0}
+.menu-footer ul li a:hover {color:#FF8000;}
+
+.info-footer {width:50%; float:left; line-height:2; padding-left:20px; } 
+.info-footer h4, .menu-footer h4, .adress-footer h4 {font-size:18px; color: #000; text-transform:uppercase; margin: 10px 0}
+.info-footer p {padding-bottom:0; color: #333; font-size:13px; line-height:1.5}
+
+.adress-footer {width:100%; float:left; padding:20px 0; background:#DDD}
+.adress-footer p {padding-bottom:0; color: #333; font-size:13px; line-height:1.5; margin-bottom:0}
+ 
+ 
+.copyright { width:100%; float:left; font-size:12px; text-align:left; color:#333; padding:10px 0; line-height:1.2}
+.copyright b {float:left; color:#000; width:100%;}
+.tag-ntv {text-align:center; padding:5px 0}
+.tag-ntv a {color:#999;}
+.tag-ntv a:hover {color:#FF8000;}
+
+ 
+ 
+/*------SUB_HEAD--------*/
+.sub-bg {width:100%; float:left}
+.sub-head { font-size:13px; width:100%; float:left; padding:15px 0}
+.sub-head a {color:#333; font-size:12px; padding-right:10px; float:left} 
+.sub-head a:after {content:"\f101"; font-family: 'FontAwesome';  color:#04476d; padding-left:5px} 
+.sub-head a:hover {color:#3daa12} 
+.sub-head span {float:left; font-size:13px; color: #FF6600} 
+ 
+.nav-page {width:100%; float:left; text-align:right; margin-bottom:20px; color:#FFF }
+.nav-page a, .nav-page strong {height:40px; padding:5px 10px; line-height:40px; background:#FFF; border:1px solid #DDD; margin:0;  font-size:14px; border-radius:5px}
+.nav-page a:hover,.nav-page a.active, .nav-page strong {background:#3daa12; color:#FFF ;border:1px solid transparent;} 
+ 
+
+ 
+/*------DETAIL-NEWS--------*/
+.content-page {width:100%; float:left; background:#FFF; padding:20px; margin-bottom:20px}
+.detail-news {width:100%; float:left;  line-height: 1.8;  font-size:14px }
+.detail-news h1 {font-size: 26px; color: #FF6600; padding-bottom: 5px; font-family: 'Roboto Condensed', sans-serif; font-weight:bold; margin-bottom:20px}
+.detail-news img {max-width:100%; height: auto ;text-align:center; margin:10px 0;}
+
+.detail-news .day {font-size:12px; color: #999; width:100%; float:left; margin-bottom:15px}
+.detail-news ul li {list-style: inherit; margin: auto;  padding-left: 30px; list-style-position: inside;}
+.detail-news h2,.detail-news h3, .detail-news h4, .detail-news h5,.detail-news h6 {width: 100%; float: left; padding:10px 0}
+ 
+
+
+.news-related {width:100%; float:left; margin:20px 0; padding-top:20px; border-top: 1px solid #CCC}
+.news-related h4 {font-size:18px; font-weight:bold; color: #FF6600;  margin-bottom:15px }
+.news-related ul li {width:100%; float:left; font-weight:600; padding:5px 0; font-size:14px }
+.news-related ul li a:before { content:"\f0da";font-family: 'FontAwesome'; margin-right:5px }
+.news-related ul li a:hover { color: #FF6600}
+
+
+
+/*----CONTACT-PAGE---*/
+.address-contact {width:40%; float:left}
+.address-contact h2 {width:100%; float:left; font-weight:600; color:#444; font-size:18px; text-transform:uppercase; margin-bottom:10px}
+.address-contact p {width:100%; float:left; margin-bottom:5px; color:#666}
+.address-contact i {width:20px; color:#000; float:left; font-size:15px}
+ 
+
+.form-contact {width:60%; float:left; margin-bottom:20px}
+.form-contact ul {margin:0; padding:0}
+.form-contact ul li {width:100%; margin:4px; float:left}
+.form-contact input[type="textbox"], .form-contact input[type="text"],.form-contact textarea{border:1px solid #CCC; border-bottom-width:2px;   border-radius:3px; width:100% ; padding:9px 10px}
+.form-contact input[type="submit"], .form-contact input[type="reset"] {padding:6px 35px; border-radius: 3px; border:none; background:#F90; color:#FFF; float:left; text-transform:uppercase; margin-right:5px}
+ 
+ 
+/*=======TOP-Page======*/
+#toTop {display:none;text-decoration:none;	position:fixed;	bottom:120px; right: 0px; overflow:hidden; width:40px; height:40px;border:none;text-indent:100%;	background:url(../img/top.png) no-repeat left top; z-index:9999}
+#toTopHover {background:url(../img/top.png) no-repeat left -40px;width:40px; height:40px; display:block; overflow:hidden; float:left; opacity: 0; -moz-opacity: 0; filter:alpha(opacity=0);}
+#toTop:active, #toTop:focus {outline:none;}
+ 
+/*------NEWS--------*/	 
+.content-page .title, .list-product .title {border-bottom:1px solid #3daa12; margin-bottom:15px; width:100%; float:left; text-align:left; margin:0; padding-bottom:10px; margin-bottom:20px}
+.content-page .title h1 , .list-product .title h1{font-size:20px; font-weight: bold; color:#3daa12}
+
+
+.hot-news {width:100%; float:left; margin-bottom:20px; border-bottom:1px solid #EEE}
+.hot-news-large {width:50%; float:left}
+.hot-news-large a {font-weight:600; color: #FF8000; font-size:18px; margin-bottom:5px; float:left; line-height:1.2; text-align:justify; width: 100%; margin-top: 5px }
+.hot-news-large a:hover {color: #3daa12;}
+.hot-news-large p {margin-top:5px; font-size:14px}
+
+.hot-news ul {width:50%; float:left; padding-left:20px}
+.hot-news ul li {width:100%; float:left; margin:0 0 10px 0}
+.hot-news ul li a {color:#000; font-size:14px}
+.hot-news ul li a:before {content:"\f0da"; color: #3daa12; font-size:12px; margin-right:5px}
+.hot-news ul li a:hover {color: #FF8000;}
+
+.news-page {width:100%; float: left}
+.news-page ul li {width: 31.66%; float:left; margin-bottom:20px; margin-right:20px}
+.news-page ul li:nth-child(3n){margin-right:0}
+.news-page ul li:hover {border-color:#f68220}
+.news-page ul li:nth-child(3n+1) {clear:both}
+.news-page ul li .img-news { cursor: pointer; height: 160px; overflow: hidden; max-width:100%; text-align:center; background:#EEE}
+.news-page ul li .img-news a {margin:0}
+.news-page ul li .img-news img {height:100%}
+.news-page ul li a {color: #000; font-size: 14px; margin: 10px 0 5px 0; line-height:1.3; float:left; font-weight: bold; color: #3daa12;}
+.news-page ul li a:hover {color:#f28902;}
+.news-page ul li p {font-size:13px; text-align:justify; line-height:1.4; color:#999}
+ 
+
+/*---------DETAIL-PRODUCT---------*/ 
+
+.pic-product {width:28%;  float:left; }
+.pic-product img{ width:100%;}
+.intro-product {width:calc(42% - 40px); float:left; margin:0 20px}
+.intro-delevery {width:30%; float:left; background:#EEE; padding:15px}
+ 
+.detail-product {width:100%;float: left; background:#FFF}
+.detail-product .sub-head {padding-left:10px}
+.detail-product .sub-head a{color:#000}
+.detail-product .sub-head h1 {color:#666; font-size:14px; padding-bottom:20px}
+
+.intro-product h1 {font-size:18px; color:#000; margin-bottom:15px; font-weight:bold; line-height:1.4}
+.ntv-price p {margin-top:10px; width:100%; float:left; color:#666; text-align:justify}
+.ntv-price .price-bf {font-size:14px; text-decoration:line-through; color: #999; float:left}
+.ntv-price .price-af {font-size:18px; color: #ff4b4b; float:left; margin-right:10px}
+.block-button {width: 100%; float:left; margin-top:10px}
+.quanlity-product {width:50%; float:left; padding-right: 15px; border-right:1px solid #CCC }
+.call-phone-zalo{width:50%; float:left; padding-left:15px}
+.num-quanlity { }
+.num-quanlity input[type=button]{width: 40px; height: 40px;   float: left; border-radius: 100px; font-size: 30px; line-height: 24px; color: #999; border:1px solid #BBB; background:#FFF}
+.num-quanlity input[type=text]{float: left; height: 40px; color: #999; border: none; border-bottom: 3px solid #CCC;  padding: 10px; text-align: center; margin: 0 14px; font-size: 18px;}
+.but-buynow input[type=image]{width:100%; float:left; border:none; color:#FFF; font-size:20px; text-transform:uppercase; background: #f28902; margin-top:10px}
+
+.call-phone-zalo a{font-size:20px; width:100%; float:left; padding:10px 0}
+.mobile-buynow {display:none}
+
+.intro-delevery .title-delevery{font-size:20px; font-weight:bold; text-transform:uppercase}
+.intro-delevery ul li {margin:10px 0; font-size:13px}
+  
+.detail-content {width:100%; float: left; margin-bottom:10px; line-height: 1.8;}
+.detail-content h2.title-ct{font-weight:normal; font-size:18px; color: #000; border-bottom:1px solid #CCC; text-transform:uppercase; margin-top:10px; padding-bottom:5px ; margin-bottom:10px}
+.detail-content .decription {width:100%; float:left; margin-top:10px; font-size:14px; line-height:30px}
+.detail-content .decription h1, .detail-content .decription h2, .detail-content .decription h3, 
+.detail-content .decription h4, .detail-content .decription h5, .detail-content .decription h6 {width:100%; float:left; margin:0; padding:0; padding:10px 0 5px 0}
+.detail-content .decription p {padding-bottom: 15px}
+
+.detail-content img {max-width:100%; height: auto; text-align:center; padding:20px 0; }
+.detail-content h2,.detail-news h3, .detail-news h4, .detail-news h5,.detail-news h6 {width: 100%; float: left; padding:10px 0}
+.detail-content p {margin-bottom: 0; padding-bottom:0}
+
+.relative-product ul {margin:0; padding: 0;}
+.relative-product ul li {width:23.95%; float:left; padding-left:0; margin-right:15px; margin-bottom:15px;border: 1px solid #EEE;}
+.relative-product ul li:nth-child(3n) {margin-right:15px}
+.relative-product ul li:nth-child(4n) {margin-right:0}
+.relative-product ul li:nth-child(3n+1) {float:left; clear:none; }
+.relative-product ul li:nth-child(4n+1) {clear:both}
+.relative-product ul li .price-product {height:60px}
+.relative-product ul li .price-product span {margin-top:-5px}
+ 
+ 
+.content-payment {width:100%; float:left; margin-top:20px}
+.infocust-product {width:calc(55% - 20px); float:left; background:#F8F8F8; border:1px solid #DDD}
+.login-cart {width:200px; float:left} 
+.login-cart ul li { border-bottom:1px solid #EEE;width:100%; float:left}
+.login-cart ul li a {padding:10px; width:100%; float:left; border-left:4px solid #F8F8F8; color:#000}
+.login-cart ul li.active a{background:#FFF; border-left:4px solid #3daa12; color:#999}
+.login-cart ul li span {font-size:12px}
+
+.formcus-cart {width:calc(100% - 200px); float:left; background:#FFF; padding:20px}
+.formcus-cart h3 {font-weight: 600; font-size: 18px; text-transform: uppercase; margin:0 0 20px 0 }
+
+.order-product {width:45%; float:left; margin-left:20px; border:1px solid #DDD; padding:15px}
+.order-product h2 {font-size:13px; border-bottom:2px solid #EEE; padding-bottom:5px; float: left; width: 100%;}
+.order-product h2 strong {font-size:15px}
+.order-product h2 input[type="button"] {float:right; font-size:11px; margin-bottom:3px; border-radius:3px; border:1px solid #CCC; padding:3px 5px}
+.order-product ul li {width:100%; float:left ; border-bottom:1px solid #EEE; padding:10px 0; }
+
+.order-product ul li .no-cart {width:40px; float:left; text-align:center}
+.order-product ul li .name-cart {float:left; width:calc(100% - 260px)}
+.order-product ul li .num-cart {width:40px; float:left; text-align:center}
+.order-product ul li .pricepay-cart {width:90px; float:left; text-align: center ; font-family:'roboto'; color:#000; font-size:14px}
+
+.order-product ul li strong {text-align:center; width:100% ;float:left}
+.order-product ul li a {width:100%; float:left; font-size:12px; color:#999; line-height:1.3}
+.order-product ul li a:hover {color:#F28902}
+ 
+ 
+
+.total-temp {width:100%; float:left; padding:10px 0}
+.total-temp ul li{width:100%; float:left; border-bottom:none; margin-bottom:0; padding:0}
+.total-temp ul li h6 { float:left; font-size:13px}
+.total-temp ul li span {float:right; text-align:right}
+
+.total-finish {width:100%; float:left; border-top: 2px solid #EEE; padding-top:15px}
+.total-finish h6 {float:left; font-size:13px; font-weight:bold}
+.total-finish span {float:right; text-align:right; font-size:16px; color: #F00}
+ 
+.part-buy {width:100%; float:left; margin-bottom:40px} 
+.part-buy ul li h4 {font-size:13px; float:left; width:100% ; margin-bottom:20px;  font-family:'Roboto'}
+.part-buy ul li span {width:30px; height:30px; float:left; background:#FFF; border:1px solid #CCC; border-radius:100%; text-align:center; line-height:28px; top:21px; position:absolute}
+.part-buy ul li .part-line {width:100%; height:6px; background:#DDD ; float:left }
+.part-buy ul li.left, .part-buy ul li.mid, .part-buy ul li.right {position:relative; float:left}
+.part-buy ul li.left {width:30%;}
+.part-buy ul li.mid {width: 40%; text-align:center; }
+.part-buy ul li.right{width:30%; text-align:right}
+
+
+.part-buy ul li.left span {left:-1px}
+.part-buy ul li.mid span {right:0; left:0;  margin:auto}
+.part-buy ul li.right span {right:-1px}
+.part-buy ul li.active span {border-color: #ff4444}
+.part-buy ul li.active span , .part-buy ul li.active .part-line {background:#ff4444; color:#FFF}
+
+.login-social {width:100%; float:left; margin: 0}
+.login-social a {display:block; width:100%; border-bottom:1px solid #FFF; padding:10px; font-size:12px; text-align:center}
+.login-social a i {width:30px; text-align:center; float:left; line-height:20px; font-size:20px; margin-right:5px}
+.login-social a:hover {color:#FFF}
+.login-social .btn-fb {background:#5670a3; color:#FFF}
+.login-social .btn-gg {background:#dd4c39; color:#FFF}
+
+
+.cart-page {width:100%; float:left}
+.basket-text {width:100%; float:left; margin-bottom:20px; color:#999;}
+.basket-table {width:100%; float:left}
+
+.basket-table .table > thead > tr > th {background:#EEE; border-bottom:none;text-align:center ; text-transform:uppercase; padding:15px 8px; color:#666; border: none}
+.basket-table .table>tbody>tr>td {vertical-align:middle;border: none; border-top: 1px solid #EEE}
+
+.basket-table .number {text-align:center}
+.basket-table .picture-cart {text-align:center; width:100px}
+.basket-table .picture-cart img {  height:70px; text-align:center ; border:1px solid #F3F3F3}
+.basket-table .check, .basket-table .quanlity-cart {text-align: center; width:120px}
+.basket-table .quanlity-cart input[type="submit"] {width:30px; height:30px; border:none; float:left; background:#CCC} 
+.basket-table .quanlity-cart input[type="text"] {width:40px; float:left; padding:5px; height:30px; border: 1px solid #CCC} 
+.basket-table .unit-cart {font-size:15px; color:#000; line-height:70px; text-align: center}
+.basket-table .payment-cart { font-size:15px; color: #000; font-weight:bold;line-height:70px; text-align:center}
+.basket-table .delete-cart {text-align: center;}
+.basket-table .delete-cart a{color: #ff4444;  text-align: center;}
+
+.total-price {width:100%; float:left; padding:20px 0; border-top: 2px solid #CCC;  text-align:right}
+.total-price span {color:#F00; font-weight:bold; font-size:18px; margin-left:20px}
+	
+.button-buy-cart {width:100%; float:left; text-align:right; float:left; padding: 20px 0 0 0 }
+.button-buy-cart input[type="button"] {background: #F28902; border: none;  color: #FFF; font-size: 14px; text-transform: uppercase; border-radius: 3px; padding: 10px 20px; margin-left:10px}
+
+.content-payment .address-delivery {  max-width: 600px; float: none; margin: 0 auto; border: none; padding: 0;} 
+.content-payment .address-delivery h3{width:100%; float:left; border-bottom:1px solid #CCC; padding-bottom:5px; margin-bottom:20px; font-size:16px; font-weight:600}
+.info-deivery {width:100%; float:left; padding-top:10px}
+.info-deivery p {margin-bottom:0; width:100%; float:left; font-size:12px; color:#666}
+.info-deivery i {width:20px; text-align:center; font-size:14px}
+.info-cus-delivery { min-height:300px; margin-bottom:20px; background:#FFF; padding:20px}
+.info-cus-delivery h3 { font-weight: 600; text-align:center; font-size: 18px; text-transform: uppercase; margin: 0 0 20px 0;}
+.info-cus-delivery ul li {width:100%; float:left; margin-bottom:10px}
+.info-cus-delivery label {font-weight:normal; float:left; width:150px}
+.info-cus-delivery label span {font-weight:bold; color:#F00}
+.form-delivery {float:left; width:calc(100% - 150px)}
+.form-delivery select, .form-delivery input[type="textbox"], .form-delivery textarea {width:100%; border:1px solid #CCC; border-bottom-width: 2px; border-radius:3px; font-size:14px; padding:5px}	
+
+.account  ul li ul li {margin: 0}
+.account  ul li ul li a {border:none; background:none; color:#333; font-size:13px; padding:5px 0}
+.account  ul li ul li a:hover {border:none; background:none; color: #F28902;}
+.account-col {width:300px; margin-right:20px; float: left;border:1px solid #DDD;}
+.account-col h2 {font-size:14px; background:#DDD}
+.account-col i img {width:70px; border-radius:100%; overflow:hidden; padding:5px}
+.account-col ul {padding:15px}
+.account-col ul li {width:100%; float:left}
+.account-col ul li:last-child a{ border-bottom:none}
+.account-col ul li a{ border-bottom:1px dashed #CCC; padding-bottom:10px; margin-bottom:10px; display:block}
+.account-col ul li a:hover , .account-col ul li a.active {color:#F28902}
+.account-main {width:calc(100% - 320px); float:left; border:1px solid #DDD;padding:15px; position:relative; min-height:300px}
+.account-main h3 {font-weight: 600; font-size: 18px; text-transform: uppercase; margin: 0 0 20px 0;}
+.welcom-success {position:absolute; margin:auto; top: 0; left:0; right:0; bottom:0; text-align:center; width:100%; height:20px }
+.adress-book ul li {position:relative; width:100%; float:left; background:#F3F3F3; margin-top: 10px; padding:10px 15px; font-size:14px}
+.adress-book ul li p {font-size:14px}
+.adress-book ul li a {background: #F28902; font-size:11px; font-weight:bold; padding:3px 10px;  border-radius:5px; margin-top:10px; float:left; color:#FFF}
+.adress-book ul li .default {position:absolute; top:0; right:0; padding:10px; background: #3daa12; color:#FFF}
+
+.my-menulist h4 {border-top:2px solid #CCC; padding:7px 0; width:100%; float:left; font-size:13px; font-weight:bold;  }
+.my-menulist .table  thead th {background:#999; color:#FFF; border-bottom:none; text-align:center; text-transform:uppercase;vertical-align:middle}
+.my-menulist .table>tbody>tr>td { border:none}
+.my-menulist .table-striped>tbody>tr:nth-child(odd)>td {background:#FCFCFC; vertical-align:middle} 
+.my-menulist .table-striped>tbody>tr:nth-child(even)>td {background:#FFF;vertical-align:middle} 
+.my-menulist td.left {text-align:left}
+.my-menulist td.center {text-align: center}
+.my-menulist td.right {text-align: right}
+.my-menulist td.finish {color:#0C3;   font-size:12px; text-align:right}
+.my-menulist td.no-finish{color:#F00;  font-size:12px; text-align:right}
+.my-menulist td.day {font-size:12px; color:#999}
+.my-menulist td.price-all{text-align:center; font-weight:bold}
+.content-menulist {width:100%; float:left; margin-bottom:20px}
+.content-menulist span {width:200px; float:left}
+.content-menulist ul li {width:100%; float:left; margin-top:5px}
+
+
+.comment-form {max-width:500px}
+.comment-form ul li {margin-bottom:10px}
+.button-comment {width:100%; float:left; margin-top:10px; padding-top:10px; border-top: 1px solid #CCC; margin-bottom:20px}
+.button-comment input[type="submit"], .button-comment input[type="reset"]  {padding: 10px 35px; border-radius: 3px; border: none; background: #F28902; color: #FFF;  text-transform: uppercase; margin-right: 5px;} 
+
+
+.comment-block { width:100%; float:left}
+.comment-block h5{ font-weight:bold; font-size:18px; margin-bottom:10px; color:#3daa12;}
+.comment-block ul li {padding-bottom:10px; margin-bottom:10px; border-bottom:1px dashed #CCC}
+.comment-block ul li p {margin-bottom:0}
+.comment-block ul li strong {margin-right:10px}
+
+.msg_head{color:#fff; font-size:14px; font-weight:bold; font-style:italic; width:140px; padding: 5px 20px; margin-bottom:10px; cursor: pointer; position: relative; background: url("../vn/images/icon_write.png") no-repeat left center #3daa12;
+ -webkit-border-radius: 5px 5px 5px 5px;
+    moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+
+/*-----------SEARCH------------*/
+.search-page {max-width:100%; margin:0 auto}
+.search-page h6 {width:100%; float:left; font-size:14px; margin-bottom:5px}
+.search-page ul li {margin-bottom:20px; width:calc( 50% - 120px); margin-right: 10px; float:left;}
+.search-page ul li:last-child{width:120px; }
+.search-page input[type="text"], .search-page select {width:100%; float:left; border: 1px solid #CCC; padding: 7px 10px;  border-radius: 5px }
+.search-button input[type="submit"]{border: none; background: #F28902;float: left; color: #FFF; width: 80px; padding: 7px; border-radius:5px; margin-top:20px}
+
+.result {width:100%; float:left; }
+.result h3 {font-size:14px; width:100%; float:left; margin-bottom:20px; border-top: 1px solid #CCC; margin-top:20px; padding-top:20px; font-weight:bold; color: #F28902}
+.result ul li {width:100%; float:left; color:#999; padding-bottom:10px; margin-bottom:10px; border-bottom:1px dashed #CCC}
+.result ul li a {color:#000;width:100%; float:left; font-weight:600}
+.result ul li a:hover {color: #f28902;}
+
+@media only screen and (max-width: 1200px){ 
+.title {margin-top:30px}
+.product-block ul li { width: 31.88%;}
+.product-block ul li .pic-news>a {height: 220px;}
+.product-block ul li h3 a {font-size: 13px; line-height: 1.5; height: 40px;}
+.news-page ul li {width: 31.22%;}
+.news-page ul li .img-news { height: 130px;}
+.relative-product ul li {padding-left:0 ; width:32.2%}
+.relative-product ul li:nth-child(3n) {margin-right:0}
+.relative-product ul li:nth-child(4n) { margin-right:15px}
+.relative-product ul li:nth-child(4n+1) { clear: none;  float: left;}
+.relative-product ul li:nth-child(12n) {margin-right:0}
+
+
+
+}
+
+@media only screen and (max-width: 1010px){
+.sticky { position: absolute} 
+.col-left {width:100%; float:right}
+.main-block {width:100%; float:left; margin-left:0}
+.product-block ul li { width: 32.27%;}
+.product-block ul li .pic-news>a {height: 250px;}
+.sub-bg {margin-top:48px}
+.relative-product ul li {  width:32.2%}
+
+.infocust-product {width:100%;}
+.order-product {width:100%; margin:0; margin-top:10px}
+
+}
+
+@media only screen and (max-width: 992px){ 
+.product-block ul li {width: calc(50% - 5px); float:left; margin-right:0}  
+.product-block ul li:nth-child(odd) { float: left; margin-right:5px;}
+.product-block ul li:nth-child(even) { float: left; margin-left:5px}
+.product-block ul li:nth-child(3n+1) { float: left; clear:none}
+.pic-product { width: 40%;}
+.intro-product { width: calc(60% - 20px); margin:0; margin-left:20px; float:left; }
+.intro-delevery {width:100%}
+
+.relative-product ul li:nth-child(4n) {
+    margin-right: 0;
+}
+
+
+}
+
+@media only screen and (max-width: 768px){
+.logo, .widget-head	{width:100%; text-align:center; margin-top:0px}	
+.widget-head span {float:none}
+.search-block {width:100%; margin:20px 0}
+.address-contact {width:100%; float:left} 
+.form-contact {width:100%; float:left; margin-bottom:20px}
+ 
+.news-page ul li {width: calc(50% - 10px); float:left; margin-right:0}
+.news-page ul li:nth-child(odd) {float:left ; }
+.news-page ul li:nth-child(even) {float:right;}
+
+.news-page ul li:nth-child(3n){ } 
+.news-page ul li:nth-child(2n+1) {clear:both; margin-right:20px}
+.news-page ul li:nth-child(3n+1) {float:left; clear:none;  }
+}
+ 
+@media only screen and (max-width: 720px){
+.content-page {margin:0 -15px ; width:calc(100% + 30px); margin-bottom:10px;}
+.hot-news-large {margin-right:0; width:100%}
+.hot-news ul {width:100%; padding:0}
+.pic-product { width: 100%;}
+.intro-product { width:100%; margin:0;}
+.call-hotline { margin:0 -15px; width:calc(100% + 30px)}
+.steps-1, .steps-2 {width:100%; float:left}
+
+.col-signin-left {width:100%; border:none; margin:0 0 20px 0;padding:0 0 20px 0; border-bottom:1px solid #DDD; }
+.col-signin-right{ width:100%; margin:0; padding:0} 
+
+.head-cart {display:none} 
+	
+.total-price {padding-right:15px;}
+.button-buy-cart input[type="button"] {padding:10px; margin-left:0}
+ 
+
+}
+
+@media only screen and (max-width: 667px){
+.account-col , .account-main {width:100%; margin:0}
+}
+
+@media only screen and (max-width: 650px){	
+ 
+}
+
+@media only screen and (max-width: 586px){
+ 
+} 
+ 
+@media only screen and (max-width: 520px) { 
+.product-block ul li .pic-news>a {height: 170px;}
+.product-block ul li .price-product {width: 100%; padding: 10px;}
+.product-block ul li .cart-product {float: left; margin:0;width: 100%; padding:0 10px; }
+.product-block ul li .cart-product a {width: calc(50% - 2px);margin: 0 1px;}	
+.icon-tinnhiem, .info-footer , .menu-footer {width:100%; margin:10px 0; padding-left:0 }
+.quanlity-product, .call-phone-zalo {width:100%; padding:0; border: none}
+.but-buynow {display:none}
+.mobile-buynow {width:100%; display:block; background:#FFF; position:fixed; bottom:0; left:0; z-index:999}
+.buy-now-mobile {width:calc(100% - 50px); float:left}
+.call-zalo {width:50px; float:left; text-align:center; }
+.mess-face {width:60px; float:left; text-align:center; display:none}
+
+.buy-now-mobile .but-buynow {display: block; height:50px;}
+.but-buynow input[type=button] {padding:16px ; margin-top:0; border-radius:0}
+.but-buynow input[type=image]{width:calc(50% - 2px); float:left; border:none; color:#FFF; font-size:20px; text-transform:uppercase; background: #f28902; padding: 12px 0px; margin-left:2px; margin-top:0}
+.search-page ul li {width:100%}
+.copyright {padding-bottom: 70px;}
+
+.order-product { overflow:auto}
+.order-product ul {width:400px; float:left; padding-right:15px}
+
+
+} 
+
+@media only screen and (max-width: 480px) { 
+ header {padding-top:30px}
+ .widget-head span {float:left; width:100%; text-align: center}
+.login-cart, .formcus-cart {width:100%}
+.info-cus-delivery label {width:100%}
+.form-delivery {width:100%}
+
+}
+ 
